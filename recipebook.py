@@ -1,4 +1,8 @@
-#recipie class that will be handling all the information for a single recipie 
+from optparse import OptionParser
+from pathlib import Path
+import random
+
+#recipe class that will be handling all the information for a single recipie 
 class recipe:
     
     #There is a default, empty form that this can be initialized into for loading recipe from file
@@ -77,3 +81,27 @@ Example of how to load in a recipe from file
 pan_fried_chicken = recipe()
 pan_fried_chicken.load_from_file("pan_fried_chicken")
 """
+
+parser = OptionParser()
+parser.add_option("-r", help="Provide True or 1 to choose a random recipie")
+parser.add_option("-l", help="Provide the name of a recipe to load")
+
+(options, args) = parser.parse_args()
+
+def get_random_recipe():
+    choices = [str(x).split('/')[1].split('.')[0] for x in Path('rec').glob("*.rec")]
+    r_recipe = recipe()
+    r_recipe.load_from_file(random.choice(choices))
+
+if options.l != None:
+    try:
+        x_recipe = recipe()
+        x_recipe.load_from_file(options.l)
+    except FileNotFoundError:
+        print("[error] recipe name is either invalid or recipe does not exist")
+
+if options.r != None:
+    if options.r == "True" or options.r == "1":
+        get_random_recipe()
+    else:
+        print("[error] improper value for -r")
