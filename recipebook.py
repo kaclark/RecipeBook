@@ -89,18 +89,25 @@ parser.add_option("-l", help="Provide the name of a recipe to load")
 (options, args) = parser.parse_args()
 
 def get_random_recipe():
+    #list comp: strip out recipe name from file location
     choices = [str(x).split('/')[1].split('.')[0] for x in Path('rec').glob("*.rec")]
+    #init empty recipe
     r_recipe = recipe()
+    #load random recipe
     r_recipe.load_from_file(random.choice(choices))
 
+#if the -l flag has been triggered:
 if options.l != None:
+    #Try to load the file
     try:
         x_recipe = recipe()
         x_recipe.load_from_file(options.l)
     except FileNotFoundError:
         print("[error] recipe name is either invalid or recipe does not exist")
 
+#if the -r flag has been triggered
 if options.r != None:
+    #Ensure that the grammer has been followed
     if options.r == "True" or options.r == "1":
         get_random_recipe()
     else:

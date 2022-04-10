@@ -2,6 +2,11 @@
 Recipes are saved in files<br/>
 Recipes are loaded from that<br/>
 
+random recipe can be loaded by typing in:<br/>
+python recipebook.py -r 1<br/>
+OR<br/>
+python recipebook.py -r True<br/>
+
 Recipe file format<br/>
 &N<br/>
 Name of Dish<br/>
@@ -19,7 +24,5 @@ Step #1<br/>
 Step #K<br/>
 
 Desired Features/TODO:<br/>
-Pick a random recipie<br/>
+Add more recipes<br/>
 Make and save collections of recipies<br/>
-Terminal action, so that file does not need to opened<br/>
-Help terminal blurb<br/>
