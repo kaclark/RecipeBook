@@ -4,15 +4,15 @@ Recipes are loaded from that<br/>
 
 Recipe file format<br/>
 &N<br/>
-Name of<br/> Dish
+Name of Dish<br/>
 &E<br/>
-Equipme<br/>nt #1
+Equipment #1<br/>
 ...<br/>
-Equipmen<br/>t #N
+Equipment #N<br/>
 &I<br/>
-Ingredi<br/>ent #1
+Ingredient #1<br/>
 ...<br/>
-Ingredie<br/>nt #M
+Ingredient #M<br/>
 &S<br/>
 Step #1<br/>
 ...<br/>
