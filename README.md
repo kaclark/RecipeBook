@@ -29,3 +29,5 @@ Step #K<br/>
 Desired Features/TODO:<br/>
 Add more recipes<br/>
 Make and save collections of recipies<br/>
+Regex/keyword search<br/>
+list possible recipes<br/>
