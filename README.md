@@ -7,6 +7,9 @@ python recipebook.py -r 1<br/>
 OR<br/>
 python recipebook.py -r True<br/>
 
+a specific recipe can be loaded by typin in:<br/>
+python recipebook.py -l RECIPE_NAME<br/>
+
 Recipe file format<br/>
 &N<br/>
 Name of Dish<br/>
