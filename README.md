@@ -27,7 +27,7 @@ Step #1<br/>
 Step #K<br/>
 
 Desired Features/TODO:<br/>
-Add more recipes<br/>
-Make and save collections of recipies<br/>
-Regex/keyword search<br/>
-list possible recipes<br/>
+[ ] Add more recipes<br/>
+[ ] Collections/Genres of recipies<br/>
+[ ] Regex/keyword search<br/>
+[ ] list possible recipes given constraints<br/>
