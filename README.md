@@ -1,4 +1,6 @@
 # RecipeBook
+Possible App Name: Tummy-ome
+
 Recipes are saved in files<br/>
 Recipes are loaded from that<br/>
 
