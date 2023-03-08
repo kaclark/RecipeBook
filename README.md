@@ -38,4 +38,5 @@ Desired Features/TODO:<br/>
 [ ] Regex/keyword search<br/>
 [ ] list possible recipes given constraints<br/>
 [ ] Look into mobile friendly html page generation for each rec<br/>
+[ ] > https://docs.djangoproject.com/en/4.1/intro/tutorial02/
 [ ] Add Images to link with recurring elements<br/>
