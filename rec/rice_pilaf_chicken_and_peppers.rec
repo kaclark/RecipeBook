@@ -1,0 +1,33 @@
+&P
+assert rice_cooker_pilaf.rec = rice*
+assert chopped_chicken.rec = chicken*
+assert chopped_pepper.rec = peppers*
+
+&N
+Rice Pilaf Chicken and Peppers
+&E
+Pan
+Utensil
+&I
+rice*
+chicken*
+peppers*
+frozen chopped onions = onions*
+olive oil
+crushed red pepper
+garlic powder
+salt and pepper
+?Seasoning Mix
+&S
+heat Pan(&E) on medium
+add onions* and oil
+add "crushed red pepper"(&I) and "garlic powder"(&I) to Pan(&E)
+let fry for 2 min
+stir with Utensil(&E)
+add peppers* to Pan(&E)
+let fry for 5 min
+add chicken* to Pan(&E)
+let fry for 8 min; stir with Utensil(&E) occasionally
+add rice* to Pan(&E)
+stir with Utensil(&E) and let fry for 3 min
+serve
