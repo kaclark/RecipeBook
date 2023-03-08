@@ -1,5 +1,7 @@
 # RecipeBook
-Possible App Name: Tummy-ome
+Possible App Name: Tummy-ome<br/>
+Goal: Simple collection of recipie file formats that can be processed into minimal html files that are mobile-friendly. Individual recipies can be sent as links branching from github.io page for this project.<br>
+
 
 Recipes are saved in files<br/>
 Recipes are loaded from that<br/>
