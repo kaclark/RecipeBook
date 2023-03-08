@@ -1,0 +1,13 @@
+&N
+Rice Cooker Pilaf
+&E
+Rice Cooker
+Measuring Cup
+Storage Container
+&I
+Boxed Rice
+&S
+add rice to "Rice Cooker"(&E)
+add 1 1/2 cups of water to "Rice Cooker"(&E)
+set "Rice Cooker"(&E) to cook
+store cooked rice in "Storage Container"(&E)
