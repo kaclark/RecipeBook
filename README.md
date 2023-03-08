@@ -44,4 +44,5 @@ Desired Features/TODO:<br/>
 [ ] list possible recipes given constraints<br/>
 [ ] Look into mobile friendly html page generation for each rec<br/>
 [ ] > https://docs.djangoproject.com/en/4.1/intro/tutorial02/ <br/>
+[ ] Attempt Rmarkdown parsing of rec for simple html generation
 [ ] Add Images to link with recurring elements<br/>
