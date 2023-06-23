@@ -5,6 +5,7 @@ import sys
 import requests
 from tempfile import NamedTemporaryFile
 import subprocess
+from bs4 import BeautifulSoup
   
 # Make one method to decode the barcode
 def BarcodeReader(image):
@@ -50,10 +51,13 @@ if __name__ == "__main__":
     url_prefix = "https://world.openfoodfacts.org/product/"
     r = requests.get(url_prefix + pcode)
     r_html = r.content
-    f = NamedTemporaryFile()
-    f.write(r_html)
-    f_path = f.name
     
     #TODO: Load Temp file into lynx through subprocess
-    lynx_search = subprocess.run(["sh", "-c", "lynx -force_html " + f_path])
+    #f = NamedTemporaryFile()
+    #f.write(r_html)
+    #f_path = f.name
+    #lynx_search = subprocess.run(["sh", "-c", "lynx -force_html " + f_path])
 
+    soup = BeautifulSoup(r_html, 'html.parser')
+    title = soup.find('title')
+    print(title.string)
