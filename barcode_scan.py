@@ -2,6 +2,7 @@
 import cv2
 from pyzbar.pyzbar import decode
 import sys
+import requests
   
 # Make one method to decode the barcode
 def BarcodeReader(image):
@@ -32,8 +33,8 @@ def BarcodeReader(image):
             if barcode.data!="":
                
             # Print the barcode data
-                print(barcode.data)
                 print(barcode.type)
+                return str(barcode.data, 'UTF-8')
                  
     #Display the image
     #cv2.imshow("Image", img)
@@ -43,4 +44,9 @@ def BarcodeReader(image):
 if __name__ == "__main__":
   # Take the image from user
     image=sys.argv[1]
-    BarcodeReader(image)
+    pcode = BarcodeReader(image)
+    url_prefix = "https://world.openfoodfacts.org/product/"
+    r = requests.get(url_prefix + pcode)
+    r_html = r.content
+    #TODO: Dump html into temp file
+    #TODO: Load Temp file into lynx through subprocess
