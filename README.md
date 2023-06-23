@@ -1,5 +1,4 @@
 # RecipeBook
-Possible App Name: Tummy-ome<br/><br/>
 Goal: Simple collection of recipie file formats that can be processed into minimal html files that are mobile-friendly. Individual recipies can be sent as links branching from github.io page for this project.<br/><br/>
 Current State of Project: Minimal Command Line functionality. Presently just a repository of recipies. Django experimentation upcoming. html-generation may be done by user then html files are simply linked to bare-bones html?<br/><br/>
 Far Future: User accounts that allow for the forking of recipies, comments, ratings of satiety, flavor, ease of production, price. Link in apis to grocery stores for price point comparison of ingredients? Consolidation of knowledge in network grows with user input. Method sharing platform?<br/><br/>
@@ -46,3 +45,6 @@ Desired Features/TODO:<br/>
 [ ] > https://docs.djangoproject.com/en/4.1/intro/tutorial02/ <br/>
 [ ] Attempt Rmarkdown parsing of rec for simple html generation
 [ ] Add Images to link with recurring elements<br/>
+[ ] Barcode scanner<br />
+[ ] UPC Barcode scanning<br />
+[ ] Fridgestore<br />
