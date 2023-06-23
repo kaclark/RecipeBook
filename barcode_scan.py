@@ -50,7 +50,6 @@ if __name__ == "__main__":
     url_prefix = "https://world.openfoodfacts.org/product/"
     r = requests.get(url_prefix + pcode)
     r_html = r.content
-    #TODO: Dump html into temp file
     f = NamedTemporaryFile()
     f.write(r_html)
     f_path = f.name
