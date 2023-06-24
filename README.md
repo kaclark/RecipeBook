@@ -23,17 +23,8 @@ Goal: Simple collection of recipie file formats that can be processed into minim
 Current State of Project: html-generation of page from .rec file format in works! Github.io page launched! Barcode scanning from browser in works!<br/><br/>
 Far Future: User accounts that allow for the forking of recipies, comments, ratings of satiety, flavor, ease of production, price? sharing platform?<br/><br/>
 
+=====================================<br/>
 Recipes are saved in files<br/>
-Recipes are loaded from that<br/>
-
-random recipe can be loaded by typing in:<br/>
-python recipebook.py -r 1<br/>
-OR<br/>
-python recipebook.py -r True<br/>
-
-a specific recipe can be loaded with:<br/>
-python recipebook.py -l RECIPE_NAME<br/>
-
 Recipe file format<br/>
 &N<br/>
 Name of Dish<br/>
@@ -49,10 +40,3 @@ Ingredient #M<br/>
 Step #1<br/>
 ...<br/>
 Step #K<br/>
-
-other recipies can be asserted prior to a .rec by adding the following as a header before &N <br/>
-&P<br/>
-assert first_rec_name.rec = first_prepped_ingredient_name<br/>
-...<br/>
-assert last_rec_name.rec = last_prepped_ingredient_name<br/>
-
