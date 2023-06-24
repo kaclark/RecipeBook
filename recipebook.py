@@ -57,6 +57,10 @@ class recipe:
         #After loading the file in, the present desired behavior is to just give a summary
         self.summary()
 
+        #TODO: Flesh out
+        def to_html(self):
+            pass
+
 """
 Example of how to load in a recipe in code
 pan_fry_chicken = recipe(

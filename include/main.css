@@ -39,21 +39,6 @@ a:visited {
     font-weight: 300;
 }
 
-#authors {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#conference {
-    text-align: center;
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-#authors a {
-    margin: 0 10px;
-}
-
 h1 {
     text-align: center;
     font-size: 35px;
@@ -170,35 +155,6 @@ p code {
     margin: 0;
     width: 50%;
     height: 150px;
-}
-
-#feedbackform {
-    border: 1px solid #ccc;
-    margin: 0 auto;
-    border-radius: 15px;
-}
-
-#eyeglass {
-    height: 530px;
-}
-
-#eyeglass #wrapper {
-    position: relative;
-    height: auto;
-    margin: 0 auto;
-    float: left;
-    width: 800px;
-}
-
-#mitnews {
-    font-weight: normal;
-    margin-top: 20px;
-    font-size: 14px;
-    width: 220px;
-}
-
-#mitnews a {
-    font-weight: normal;
 }
 
 .teaser-img {
