@@ -1,9 +1,9 @@
 # RecipeBook
 
-https://kaclark.github.io/RecipeBook/
+https://kaclark.github.io/RecipeBook/<br/>
 
 Desired Features/TODO:<br/>
---Functionality
+--Functionality<br/>
 [ ] Add more recipes<br/>
 [ ] Collections/Genres of recipies<br/>
 [ ] Regex/keyword search<br/>
@@ -11,12 +11,12 @@ Desired Features/TODO:<br/>
 [ ] Barcode scanner(from browser?)<br />
 [x] UPC Barcode scanning<br />
 [ ] Fridgestore<br />
---User Experience
+--User Experience<br/>
 [x] mobile friendly html page generation<br/>
-[x] simple html generation for index
-[x] github.io page
-[x] .rec to html for links in main index
---Aesthetic
+[x] simple html generation for index<br />
+[x] github.io page <br/>
+[x] .rec to html for links in main index <br/>
+--Aesthetic<br/>
 [ ] Add Images to recurring elements(pot, pan, salt and pepper)<br/>
 
 Goal: Simple collection of recipie file formats that can be processed into minimal html files that are mobile-friendly. Individual recipies can be sent as links branching from github.io page for this project. Fridgestore, Recipebook integration with a recipe search function(webscraping on-masse)<br/><br/>
