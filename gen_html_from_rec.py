@@ -128,10 +128,11 @@ def gen_main_header(title, subtitle, img_src='./include/frying_pan.png'):
     <h1>{subtitle}</h1>
     '''
 def gen_header(title):
+    mtitle = strip_underscores(title)
     return f'''
     <body>
     <div class="content">
-        <h1>{title}</h1>
+        <h1>{mtitle}</h1>
     </div>
     <div class="content" id="content">
     '''
@@ -143,10 +144,13 @@ def gen_tail():
     </html>
     '''
 
+def strip_underscores(string):
+    return " ".join([f.capitalize() for f in string.split("_")])
+
 def construct_main_index(title, subtitle, img_src, recs):
 
     def list_recipe(rec):
-        return "<a href='./routes/" + rec + ".html'><p>" + rec + "</p></a>\n\t"
+        return "<a href='./routes/" + rec + ".html'><p>" + strip_underscores(rec) + "</p></a>\n\t"
 
     index_output = ""
     index_output += gen_head(title, main=True) 
@@ -168,8 +172,8 @@ def construct_rec_index(rec):
     xrec = Recipe()
     xrec.clear()
     xrec.load_from_file(rec)
-    print(rec)
-    xrec.summary()
+    #print(rec)
+    #xrec.summary()
     
     index_output += xrec.to_html()
     index_output += gen_tail() 
