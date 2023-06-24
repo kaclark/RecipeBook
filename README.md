@@ -1,5 +1,7 @@
 # RecipeBook
 
+https://kaclark.github.io/RecipeBook/
+
 Desired Features/TODO:<br/>
 --Functionality
 [ ] Add more recipes<br/>
@@ -13,7 +15,7 @@ Desired Features/TODO:<br/>
 [x] mobile friendly html page generation<br/>
 [x] simple html generation for index
 [x] github.io page
-[ ] .rec to html for links in main index
+[x] .rec to html for links in main index
 --Aesthetic
 [ ] Add Images to recurring elements(pot, pan, salt and pepper)<br/>
 
