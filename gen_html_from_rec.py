@@ -130,15 +130,31 @@ def gen_main_header(title, subtitle, img_src='./include/frying_pan.png'):
     <div class="content" id="content">
     <h1>{subtitle}</h1>
     '''
-def gen_header(title):
+def gen_header(title, home_img=False, home_img_src="../include/frying_pan.png", redirect="../index.html"):
     mtitle = strip_underscores(title)
-    return f'''
-    <body>
-    <div class="content">
-        <h1>{mtitle}</h1>
-    </div>
-    <div class="content" id="content">
-    '''
+    if not home_img:
+        return f'''
+        <body>
+        <div class="content">
+            <h1>{mtitle}</h1>
+        </div>
+        <div class="content" id="content">
+        '''
+    else:
+        return f'''
+        <body>
+        <div class="content">
+            <h1>{mtitle}</h1>
+        <div class='teaser-box'>
+        <a href="{redirect}">
+        <img class='teaser-img' src='{home_img_src}'></img>
+        </a>
+        </div>
+        </div>
+        <div class="content" id="content">
+
+        '''
+
 
 def gen_tail():
     return f'''
@@ -169,7 +185,7 @@ def construct_rec_index(rec):
 
     index_output = ""
     index_output += gen_head(rec) 
-    index_output += gen_header(rec)
+    index_output += gen_header(rec, home_img=True)
     #TODO: FIll with rec info
     #load rec class from .rec file here
     xrec = Recipe()

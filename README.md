@@ -23,18 +23,18 @@ html generation for arbitrary .rec contents<br/><br/>
 Desired Features/TODO:<br/>
 =====================================<br/>
 --Functionality<br/>
-[ ] Frying Pan img src in routes leads back to home<br/>
-[ ] Add Navigation Banner <br />
-[ ] Text Field input<br/>
-[ ] Todoist integration (Temporary Database)<br/>
-[ ] Database Integration<br/> 
+>Navigation and Organization
 [x] Add more recipes<br/>
+[x] Frying Pan img src in routes leads back to home<br/>
 [ ] Collections/Genres of recipies<br/>
 [ ] Regex/keyword search<br/>
 [ ] list possible recipes given constraints(for fridgestore)<br/>
-[ ] Barcode scanner(from browser?)<br />
+>Fridgestore<br />
+[ ] Text Field input<br/>
+[ ] Todoist integration (Temporary Database)<br/>
+[ ] Database Integration<br/> 
+[ ] Barcode scanner from browser<br />
 [x] UPC Barcode scanning<br />
-[ ] Fridgestore<br />
 --User Experience<br/>
 [x] mobile friendly html page generation<br/>
 [x] simple html generation for index<br />
@@ -44,6 +44,8 @@ Desired Features/TODO:<br/>
 [ ] Text Recipes on Schedule: Kitchen Calender<br />
 [ ] User Accounts(Database needed)<br/>
 --Aesthetic<br/>
+[ ] Flexbox CSS for main index
+[ ] 'Card' Component Style
 [ ] Add Images to recurring elements(pot, pan, salt and pepper)<br/><br/>
 
 
