@@ -115,15 +115,14 @@ def gen_head(title, main=False):
         <link rel="stylesheet" type="text/css" href="../include/main.css"/>
         </head>'''
 
-def gen_main_header(title, subtitle, img_src='./include/frying_pan.png'):
+def gen_main_header(title, subtitle, img_src='./include/fridge.jpeg', redirect="./routes/fridgestore_collect.html"):
     return f'''
     <body>
     <div class="content">
         <h1>{title}</h1>
     <div class='teaser-box'>
+    <a href="{redirect}">
     <img class='teaser-img' src='{img_src}'></img>
-    <a href="./routes/fridgestore_collect.html">
-    <img class='teaser-img' src='./include/fridge.jpeg'></img>
     </a>
     </div>
     </div>
@@ -173,7 +172,10 @@ def construct_main_index(title, subtitle, img_src, recs):
 
     index_output = ""
     index_output += gen_head(title, main=True) 
-    index_output += gen_main_header(title, subtitle, img_src)
+    #img_src should be provided here, but
+    #default vals are being used fior now
+    #TODO Refactor
+    index_output += gen_main_header(title, subtitle)
     for rec in recs:
         index_output += list_recipe(rec)
     index_output += gen_tail()

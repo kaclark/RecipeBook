@@ -26,6 +26,7 @@ Desired Features/TODO:<br/>
 >Navigation and Organization
 [x] Add more recipes<br/>
 [x] Frying Pan img src in routes leads back to home<br/>
+[ ] Navigation Bar<br/>
 [ ] Collections/Genres of recipies<br/>
 [ ] Regex/keyword search<br/>
 [ ] list possible recipes given constraints(for fridgestore)<br/>
