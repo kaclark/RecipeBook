@@ -8,41 +8,14 @@
 
 <body>
 <div class="content">
-<h1>Fridgestore Collect</h1>
+<h1>Fridgestore View</h1>
 <div class='teaser-box'>
 <img class='teaser-img' src="../include/fridge.jpeg"></img>
 </div>
 </div>
 <div class="content" id="content">
-<h1>Gather Media</h1>
-<input type="file" accept="image/*" id="file-input" capture />
-<p id="p1"></p>
-<img id="img1" src=""/>
+<h1>View FrideStore</h1>
+
 </div>
 </body>
 </html>
-
-
-<script>
-  const fileInput = document.getElementById('file-input');
-
-  fileInput.addEventListener('change', (e) =>
-    doSomethingWithFiles(e.target.files),
-  );
-  function doSomethingWithFiles(files){
-	const f_p = document.createElement('p');
-	f_p.
-	const parent = document.getElementById("content");
-	const child = document.getElementById("p1");
-	const para = document.createElement("p");
-	const node = document.createTextNode(files);
-	para.appendChild(node);
-	parent.replaceChild(para,child);
-
-	let ximg = new Image();
-	ximg.src = files;                             
-	document.getElementById('content').appendChild(ximg);
-
-	parent.replaceChild(ximg, ichild);
-  }
-</script>

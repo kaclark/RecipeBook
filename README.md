@@ -31,10 +31,8 @@ Navigation and Organization<br/>
 [ ] Regex/keyword search<br/>
 [ ] list possible recipes given constraints(for fridgestore)<br/>
 Fridgestore<br />
-[ ] Text Field input<br/>
 [ ] Todoist integration (Temporary Database)<br/>
 [ ] Database Integration<br/> 
-[ ] Barcode scanner from browser<br />
 [x] UPC Barcode scanning<br />
 --User Experience<br/>
 [x] mobile friendly html page generation<br/>
@@ -43,7 +41,6 @@ Fridgestore<br />
 [x] .rec to html for links in main index <br/>
 [ ] Flash Recipes<br/>
 [ ] Text Recipes on Schedule: Kitchen Calender<br />
-[ ] User Accounts(Database needed)<br/>
 --Aesthetic<br/>
 [ ] Flexbox CSS for main index
 [ ] 'Card' Component Style
