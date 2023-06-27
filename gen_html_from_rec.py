@@ -122,6 +122,9 @@ def gen_main_header(title, subtitle, img_src='./include/frying_pan.png'):
         <h1>{title}</h1>
     <div class='teaser-box'>
     <img class='teaser-img' src='{img_src}'></img>
+    <a href="./routes/fridgestore_collect.html">
+    <img class='teaser-img' src='./include/fridge.jpeg'></img>
+    </a>
     </div>
     </div>
     <div class="content" id="content">
