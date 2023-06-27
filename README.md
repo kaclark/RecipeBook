@@ -23,14 +23,14 @@ html generation for arbitrary .rec contents<br/><br/>
 Desired Features/TODO:<br/>
 =====================================<br/>
 --Functionality<br/>
->Navigation and Organization
+Navigation and Organization<br/>
 [x] Add more recipes<br/>
 [x] Frying Pan img src in routes leads back to home<br/>
 [ ] Navigation Bar<br/>
 [ ] Collections/Genres of recipies<br/>
 [ ] Regex/keyword search<br/>
 [ ] list possible recipes given constraints(for fridgestore)<br/>
->Fridgestore<br />
+Fridgestore<br />
 [ ] Text Field input<br/>
 [ ] Todoist integration (Temporary Database)<br/>
 [ ] Database Integration<br/> 
