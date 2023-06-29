@@ -22,6 +22,10 @@ html generation for arbitrary .rec contents<br/><br/>
 =====================================<br/>
 Desired Features/TODO:<br/>
 =====================================<br/>
+--Framework<br/>
+[ ] Reactpy of current functionality<br/>
+[ ] Reactpy text input<br/>
+[ ] Reactpy Database integration<br/>
 --Functionality<br/>
 Navigation and Organization<br/>
 [x] Add more recipes<br/>
@@ -32,7 +36,6 @@ Navigation and Organization<br/>
 [ ] list possible recipes given constraints(for fridgestore)<br/>
 Fridgestore<br />
 [ ] Todoist integration (Temporary Database)<br/>
-[ ] Database Integration<br/> 
 [x] UPC Barcode scanning<br />
 --User Experience<br/>
 [x] mobile friendly html page generation<br/>
@@ -40,22 +43,23 @@ Fridgestore<br />
 [x] github.io page <br/>
 [x] .rec to html for links in main index <br/>
 [ ] Flash Recipes<br/>
-[ ] Text Recipes on Schedule: Kitchen Calender<br />
 --Aesthetic<br/>
 [ ] Flexbox CSS for main index
 [ ] 'Card' Component Style
-[ ] Add Images to recurring elements(pot, pan, salt and pepper)<br/><br/>
-
+[ ] Add Images to recurring elements(pot, pan, salt and pepper)<br/>
+<br/>
 
 =====================================<br/>
 Next Milestones:<br/>
 =====================================<br/>
+Reactpy Refactor<br/>
 Text-Capture for Fridgestore<br/>
 Grocery Planner<br/>
 Quantity Checker<br/>
 Pricebot<br/>
 Cooking Calender<br/>
-Cooking Queue Generation<br/><br/>
+Cooking Queue Generation<br/>
+<br/>
 
 =====================================<br/>
 Recipe file format<br/>
