@@ -131,7 +131,8 @@ def gen_main_header(title, subtitle, img_src='./include/fridge.jpeg', redirect="
     </div>
     </div>
     <div class="content" id="content">
-    <h1>{subtitle}</h1>
+    <h1 id="xsub">{subtitle}</h1>
+    <py-script>display("Cook it up", target="xsub")</py-script>
     '''
 def gen_header(title, home_img=False, home_img_src="../include/frying_pan.png", redirect="../index.html"):
     mtitle = strip_underscores(title)
