@@ -5,15 +5,16 @@
         <link rel="stylesheet" type="text/css" href="./include/main.css"/>
         <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-        <py-config>
-            [[fetch]]
-            files = ["gen_basic_file.py"]
-        </py-config>
-        </head>
-        <py-script>
+        </head><py-script>
+        from js import Object
+        import pyodide_js 
+        from pyodide.ffi import to_js
+
+        pyodide_js.FS.mkdir("/mnt")
+        pyodide_js.FS.mount(pyodide_js.FS.filesystems.IDBFS, to_js({"root":"."}, dict_converter=Object.fromEntries), "/mnt")
         import os
-        from gen_basic_file import wf
-        wf("testing.txt", "testingtesting")
+        import sys
+        sys.path.append("/mnt")
         display(os.listdir(), target="termout")
         </py-script>
         <p id='termout'>Nothing to See<p>

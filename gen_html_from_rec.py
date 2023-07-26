@@ -189,10 +189,6 @@ def gen_recsubmit_head(title):
         <link rel="stylesheet" type="text/css" href="./include/main.css"/>
         <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-        <py-config>
-            [[fetch]]
-            files = ["gen_basic_file.py"]
-        </py-config>
         </head>'''
 
 def gen_main_header(title, subtitle, img_src='./include/fridge.jpeg', redirect="./routes/fridgestore_collect.html"):
@@ -299,9 +295,16 @@ def construct_fridgestore():
 def construct_recsubmit(all_recs):
 
     def gen_recsubmit_pyscript(fn, contents):
-        return f'''
-        <py-script>
+        return f'''<py-script>
+        from js import Object
+        import pyodide_js 
+        from pyodide.ffi import to_js
+
+        pyodide_js.FS.mkdir("/mnt")
+        pyodide_js.FS.mount(pyodide_js.FS.filesystems.IDBFS, to_js({{"root":"."}}, dict_converter=Object.fromEntries), "/mnt")
         import os
+        import sys
+        sys.path.append("/mnt")
         display(os.listdir(), target="termout")
         </py-script>
         '''
@@ -322,5 +325,5 @@ def refresh():
         construct_rec_index(rec)
     #construct_fridgestore()
 
-#construct_recsubmit(get_recs())
-refresh()
+construct_recsubmit(get_recs())
+#refresh()
