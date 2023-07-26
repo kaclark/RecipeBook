@@ -157,8 +157,6 @@ def gen_head(title, main=False):
         <title>{title}</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./include/main.css"/>
-        >
-        
         <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         </head>'''
@@ -169,6 +167,21 @@ def gen_head(title, main=False):
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../include/main.css"/>
         </head>'''
+
+def gen_recsubmit_head(title, recslist):
+        return f'''<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title>{title}</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./include/main.css"/>
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        <py-config>
+            [[fetch]]
+            files = {recslist}
+        </py-config>
+        </head>'''
+
 
 def gen_main_header(title, subtitle, img_src='./include/fridge.jpeg', redirect="./routes/fridgestore_collect.html"):
     return f'''
@@ -271,8 +284,38 @@ def construct_fridgestore():
     with open("./routes/fridgestore_collect.html", "w") as out_html:
         out_html.write(html_stream)
 
-rec_names = get_recs()
-construct_main_index("Recipebook", "All Recipes", "./include/frying_pan.png", rec_names)    
-for rec in rec_names:
-    construct_rec_index(rec)
-#construct_fridgestore()
+def construct_recsubmit(all_recs):
+
+    def gen_recsubmit_pyscript():
+        return f'''<py-script>
+        import os
+        xpath = "test.txt"
+        with open(xpath, 'w') as fp:
+            fp.write("testing")
+
+        with open(xpath, "r") as fp_in:
+            display(fp_in.readlines(), target="termout")
+
+        for ent in os.listdir("rec"):
+            with open("rec/" + ent, "r") as rec_out:
+                display(rec_out.readlines(), target="termout")
+        </py-script>
+        '''
+    all_recs_mod = ["./rec/" + rec + ".rec" for rec in all_recs]
+    recsubmit = ""
+    recsubmit += gen_recsubmit_head("Submit Recipe", all_recs_mod)
+    recsubmit += gen_recsubmit_pyscript()
+    recsubmit += "<p id='termout'>Nothing to See<p>"
+    recsubmit += gen_tail()
+
+    with open("./recsubmit.html", "w") as out_html:
+        out_html.write(recsubmit)
+
+def refresh():
+    rec_names = get_recs()
+    construct_main_index("Recipebook", "All Recipes", "./include/frying_pan.png", rec_names)    
+    for rec in rec_names:
+        construct_rec_index(rec)
+    #construct_fridgestore()
+
+construct_recsubmit(get_recs())
