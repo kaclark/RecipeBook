@@ -7,7 +7,6 @@ import requests
 from PIL import Image
 import os
 
-
 def get_tasks(p_id, xapi):
 	tasks=xapi.get_tasks()
 	tasks_out = []
@@ -168,7 +167,7 @@ def gen_head(title, main=False):
         <link rel="stylesheet" type="text/css" href="../include/main.css"/>
         </head>'''
 
-def gen_recsubmit_head(title, recslist):
+def gen_recfetch_head(title, recslist):
         return f'''<html><head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>{title}</title>
@@ -182,6 +181,19 @@ def gen_recsubmit_head(title, recslist):
         </py-config>
         </head>'''
 
+def gen_recsubmit_head(title):
+        return f'''<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title>{title}</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./include/main.css"/>
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        <py-config>
+            [[fetch]]
+            files = ["gen_basic_file.py"]
+        </py-config>
+        </head>'''
 
 def gen_main_header(title, subtitle, img_src='./include/fridge.jpeg', redirect="./routes/fridgestore_collect.html"):
     return f'''
@@ -286,25 +298,17 @@ def construct_fridgestore():
 
 def construct_recsubmit(all_recs):
 
-    def gen_recsubmit_pyscript():
-        return f'''<py-script>
+    def gen_recsubmit_pyscript(fn, contents):
+        return f'''
+        <py-script>
         import os
-        xpath = "test.txt"
-        with open(xpath, 'w') as fp:
-            fp.write("testing")
-
-        with open(xpath, "r") as fp_in:
-            display(fp_in.readlines(), target="termout")
-
-        for ent in os.listdir("rec"):
-            with open("rec/" + ent, "r") as rec_out:
-                display(rec_out.readlines(), target="termout")
+        display(os.listdir(), target="termout")
         </py-script>
         '''
-    all_recs_mod = ["./rec/" + rec + ".rec" for rec in all_recs]
+    #all_recs_mod = ["./rec/" + rec + ".rec" for rec in all_recs]
     recsubmit = ""
-    recsubmit += gen_recsubmit_head("Submit Recipe", all_recs_mod)
-    recsubmit += gen_recsubmit_pyscript()
+    recsubmit += gen_recsubmit_head("Submit Recipe")
+    recsubmit += gen_recsubmit_pyscript("'rec/pyscript_testing.rec'", "'pyscript testing\ntesttest'")
     recsubmit += "<p id='termout'>Nothing to See<p>"
     recsubmit += gen_tail()
 
@@ -318,4 +322,5 @@ def refresh():
         construct_rec_index(rec)
     #construct_fridgestore()
 
-construct_recsubmit(get_recs())
+#construct_recsubmit(get_recs())
+refresh()

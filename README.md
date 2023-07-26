@@ -20,16 +20,16 @@ python recipe class<br/>
 html generation for index<br/>
 github.io site launch<br/>
 html generation for arbitrary .rec contents<br/>
-discovery of reactpy, pyscript<br/>
+discovery of pyscript<br/>
 <br/>
 
 =====================================<br/>
 Desired Features/TODO:<br/>
 =====================================<br/>
 --Framework<br/>
-[ ] Reactpy of current functionality<br/>
-[ ] Reactpy text input<br/>
-[ ] Reactpy Database integration<br/>
+[ ] pyscript text input for new rec<br/>
+[ ] pyscript persistent filesystem<br/>
+[x] pyscript get from local file<br/>
 --Functionality<br/>
 Navigation and Organization<br/>
 [x] Add more recipes<br/>
@@ -41,7 +41,8 @@ Navigation and Organization<br/>
 [ ] Track Recipes<br/>
 [ ] Main Page with recents, favorites, and reccomendations/predictions<br/>
 Fridgestore<br />
-[ ] Todoist integration (Temporary Database)<br/>
+[ ] Show recipies avialable for each entry<br/>
+[x] Todoist integration (Temporary Database)<br/>
 [x] UPC Barcode scanning<br />
 --User Experience<br/>
 [x] mobile friendly html page generation<br/>

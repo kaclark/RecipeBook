@@ -7,20 +7,14 @@
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         <py-config>
             [[fetch]]
-            files = ['./rec/sesame_noodles.rec', './rec/chicken_noodle_pan.rec', './rec/cheesey_spinach_chicken_quesdilla.rec', './rec/cheesy_spinach_scrambled_eggs.rec', './rec/chicken_tikka_masala.rec', './rec/easy_italian_baked_chicken.rec', './rec/frappe.rec', './rec/oven_baked_chicken_drumsticks.rec', './rec/oven_baked_potatoes.rec', './rec/pan_fried_chicken.rec', './rec/pan_fried_peaches.rec', './rec/pan_fried_potatoes.rec', './rec/rice_cooker_pilaf.rec', './rec/rice_pilaf_chicken_and_peppers.rec', './rec/ricecooker_rice.rec', './rec/savory_egg_rice.rec', './rec/simple_carabonara.rec', './rec/spicy_sausage_pasta.rec', './rec/pecan_salad.rec', './rec/teryaki_brussel_sprouts.rec']
+            files = ["gen_basic_file.py"]
         </py-config>
-        </head><py-script>
+        </head>
+        <py-script>
         import os
-        xpath = "test.txt"
-        with open(xpath, 'w') as fp:
-            fp.write("testing")
-
-        with open(xpath, "r") as fp_in:
-            display(fp_in.readlines(), target="termout")
-
-        for ent in os.listdir("rec"):
-            with open("rec/" + ent, "r") as rec_out:
-                display(rec_out.readlines(), target="termout")
+        from gen_basic_file import wf
+        wf("testing.txt", "testingtesting")
+        display(os.listdir(), target="termout")
         </py-script>
         <p id='termout'>Nothing to See<p>
     </div>
