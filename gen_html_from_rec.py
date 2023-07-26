@@ -2,6 +2,59 @@
 #quasi component design strategy
 from pathlib import Path
 import random
+from todoist_api_python.api import TodoistAPI
+import requests
+from PIL import Image
+import os
+
+###Fridgestore
+with open("api.token", "r") as key_in:
+	api = TodoistAPI(str(key_in.readlines()[0].split("\n")[0]))
+
+def get_tasks(p_id):
+	tasks=api.get_tasks()
+	tasks_out = []
+	for task in tasks:
+		imgname = task.content
+		if int(task.project_id) == p_id and task.is_completed == False:
+			tasks_out.append((task.content, get_attachment_from_comment(get_comments(task.id), imgname)))
+	return tasks_out
+
+def get_comments(t_id):
+	try:
+		comments=api.get_comments(task_id=t_id)
+		return comments[0]
+	except Exception as error:
+		pass
+
+def get_attachment_from_comment(comment, imgname):
+	try:
+		iurl = comment.attachment.image
+		fattach = iurl.split(".")[-1]
+		ifp = "img/" + imgname + "." + fattach
+		if not os.path.isfile(ifp):
+			with open(ifp, "wb") as img_out:
+				img_out.write(requests.get(iurl).content)
+		return ifp
+
+	except Exception as error:
+		print(error)
+		pass
+
+def gen_frigestore_head(title): 
+    return f'''<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{title}</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+    </head>
+    <body>
+    <div class="content" id="content"><p>{title}</p></div>'''
+
+
+def gen_fridgestore_p(text, img_src):
+    return f'''<div class="content" id="content"><p id="entry">{text}</p><img class="teaser-img" src={img_src}></div>
+    '''
 
 #recipe class that will be handling all the information for a single recipie
 class Recipe:
@@ -206,9 +259,19 @@ def construct_rec_index(rec):
     with open("./routes/" + rec + ".html", "w") as html_out:
         html_out.write(index_output)
 
+def construct_fridgestore():
+	project_id = 2294556610
+	task_data = get_tasks(project_id)
+	html_stream = ""
+	html_stream += gen_head("peek into our fluffy fridge!")
+	for t_data in task_data:
+		html_stream += gen_p(t_data[0], t_data[1])
+	html_stream += gen_tail()
+	with open("./routes/fridgestore_collect.html", "w") as out_html:
+		out_html.write(html_stream)
+
 rec_names = get_recs()
 construct_main_index("Recipebook", "All Recipes", "./include/frying_pan.png", rec_names)    
 for rec in rec_names:
     construct_rec_index(rec)
-
-
+construct_fridgestore()
