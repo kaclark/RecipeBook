@@ -7,12 +7,9 @@ import requests
 from PIL import Image
 import os
 
-###Fridgestore
-with open("api.token", "r") as key_in:
-	api = TodoistAPI(str(key_in.readlines()[0].split("\n")[0]))
 
-def get_tasks(p_id):
-	tasks=api.get_tasks()
+def get_tasks(p_id, xapi):
+	tasks=xapi.get_tasks()
 	tasks_out = []
 	for task in tasks:
 		imgname = task.content
@@ -261,18 +258,21 @@ def construct_rec_index(rec):
         html_out.write(index_output)
 
 def construct_fridgestore():
-	project_id = 2294556610
-	task_data = get_tasks(project_id)
-	html_stream = ""
-	html_stream += gen_fridgestore_head("peek into our fluffy fridge!")
-	for t_data in task_data:
-		html_stream += gen_fridgestore_p(t_data[0], t_data[1])
-	html_stream += gen_tail()
-	with open("./routes/fridgestore_collect.html", "w") as out_html:
-		out_html.write(html_stream)
+    ###Fridgestore
+    with open("api.token", "r") as key_in:
+        api = TodoistAPI(str(key_in.readlines()[0].split("\n")[0]))
+    project_id = 2294556610
+    task_data = get_tasks(project_id, xapi)
+    html_stream = ""
+    html_stream += gen_fridgestore_head("peek into our fluffy fridge!")
+    for t_data in task_data:
+        html_stream += gen_fridgestore_p(t_data[0], t_data[1])
+    html_stream += gen_tail()
+    with open("./routes/fridgestore_collect.html", "w") as out_html:
+        out_html.write(html_stream)
 
 rec_names = get_recs()
 construct_main_index("Recipebook", "All Recipes", "./include/frying_pan.png", rec_names)    
 for rec in rec_names:
     construct_rec_index(rec)
-construct_fridgestore()
+#construct_fridgestore()
