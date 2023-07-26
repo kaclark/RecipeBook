@@ -31,7 +31,7 @@ def get_attachment_from_comment(comment, imgname):
 	try:
 		iurl = comment.attachment.image
 		fattach = iurl.split(".")[-1]
-		ifp = "img/" + imgname + "." + fattach
+		ifp = "include/" + imgname + "." + fattach
 		if not os.path.isfile(ifp):
 			with open(ifp, "wb") as img_out:
 				img_out.write(requests.get(iurl).content)
@@ -41,19 +41,20 @@ def get_attachment_from_comment(comment, imgname):
 		print(error)
 		pass
 
-def gen_frigestore_head(title): 
+def gen_fridgestore_head(title): 
     return f'''<html><head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>{title}</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="main.css"/>
+    <link rel="stylesheet" type="text/css" href="../include/fridge.css"/>
     </head>
     <body>
     <div class="content" id="content"><p>{title}</p></div>'''
 
 
 def gen_fridgestore_p(text, img_src):
-    return f'''<div class="content" id="content"><p id="entry">{text}</p><img class="teaser-img" src={img_src}></div>
+    img_src_mod = "../" + img_src
+    return f'''<div class="content" id="content"><p id="entry">{text}</p><img class="teaser-img" src={img_src_mod}></div>
     '''
 
 #recipe class that will be handling all the information for a single recipie
@@ -263,9 +264,9 @@ def construct_fridgestore():
 	project_id = 2294556610
 	task_data = get_tasks(project_id)
 	html_stream = ""
-	html_stream += gen_head("peek into our fluffy fridge!")
+	html_stream += gen_fridgestore_head("peek into our fluffy fridge!")
 	for t_data in task_data:
-		html_stream += gen_p(t_data[0], t_data[1])
+		html_stream += gen_fridgestore_p(t_data[0], t_data[1])
 	html_stream += gen_tail()
 	with open("./routes/fridgestore_collect.html", "w") as out_html:
 		out_html.write(html_stream)
