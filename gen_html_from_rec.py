@@ -299,13 +299,20 @@ def construct_recsubmit(all_recs):
         from js import Object
         import pyodide_js 
         from pyodide.ffi import to_js
+        import os
+        import sys
+
+        def fs_callback():
+            pass
 
         pyodide_js.FS.mkdir("/mnt")
         pyodide_js.FS.mount(pyodide_js.FS.filesystems.IDBFS, to_js({{"root":"."}}, dict_converter=Object.fromEntries), "/mnt")
-        import os
-        import sys
+        pyodide_js.FS.syncfs(to_js(True), to_js(fs_callback()))
         sys.path.append("/mnt")
-        display(os.listdir(), target="termout")
+
+        #with open("/mnt/test.txt", "w") as test_out:
+        #    test_out.write("testingtesting")
+        display(os.listdir("/mnt"), target="termout")
         </py-script>
         '''
     #all_recs_mod = ["./rec/" + rec + ".rec" for rec in all_recs]
@@ -317,6 +324,9 @@ def construct_recsubmit(all_recs):
 
     with open("./recsubmit.html", "w") as out_html:
         out_html.write(recsubmit)
+
+#with open("/mnt/test.txt", "w") as test_out:
+#test_out.write("testingtesting")
 
 def refresh():
     rec_names = get_recs()
