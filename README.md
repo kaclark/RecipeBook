@@ -27,12 +27,15 @@ Vision for Next Steps<br />
 =====================================<br/>
 The home index should be a portfolio of classic dishes I can make with ease and expertise. The Fridge Icon should take one to a page mapped to what's prepped to be fried or baked at will in my kitchen. Ideas should germinate from the index and encounters should dawn from the fridgepage.<br/>
 
+Furthermore, .rec files were imagined to be static. I'm now experimenting with .prep files and recording their relations with other elements. I'm considering having .elt files for purchased items with UPC Bardcode data appended to them.Maybe different garlic powders go into the same .rec. The .elt system will be sensitive to this granularity<br/>
+
 =====================================<br/>
 Desired Features/TODO:<br/>
 =====================================<br/>
 --Functionality<br/>
 [ ] Element-relation framework<br/>
 [ ] Fridge -> Prep<br/>
+[ ] Record Recipe Activation(Card Format)<br/>
 Navigation and Organization<br/>
 [x] Add more recipes<br/>
 [x] Frying Pan img src in routes leads back to home<br/>
