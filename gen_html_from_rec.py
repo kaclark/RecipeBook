@@ -181,7 +181,7 @@ def gen_recsubmit_head(title):
         <link rel="stylesheet" type="text/css" href="./include/main.css"/>
         </head>'''
 
-def gen_main_header(title, subtitle, img_src='./include/fridge.jpeg', redirect="./routes/fridgestore_collect.html"):
+def gen_main_header(title, img_src='./include/fridge.jpeg', redirect="./routes/fridgestore_collect.html"):
     return f'''
     <body>
     <div class="content">
@@ -193,7 +193,6 @@ def gen_main_header(title, subtitle, img_src='./include/fridge.jpeg', redirect="
     </div>
     </div>
     <div class="content" id="content">
-    <h1 id="xsub">{subtitle}</h1>
     '''
 def gen_header(title, home_img=False, home_img_src="../include/frying_pan.png", redirect="../index.html"):
     mtitle = strip_underscores(title)
@@ -231,7 +230,7 @@ def gen_tail():
 def strip_underscores(string):
     return " ".join([f.capitalize() for f in string.split("_")])
 
-def construct_main_index(title, subtitle, img_src, recs):
+def construct_main_index(title, img_src, recs):
 
     def list_recipe(rec):
         return "<a href='./routes/" + rec + ".html'><p>" + strip_underscores(rec) + "</p></a>\n\t"
@@ -241,7 +240,7 @@ def construct_main_index(title, subtitle, img_src, recs):
     #img_src should be provided here, but
     #default vals are being used fior now
     #TODO Refactor
-    index_output += gen_main_header(title, subtitle)
+    index_output += gen_main_header(title)
     for rec in recs:
         index_output += list_recipe(rec)
     index_output += gen_tail()
@@ -297,7 +296,7 @@ def construct_recsubmit(all_recs):
 
 def refresh():
     rec_names = get_recs()
-    construct_main_index("Recipebook", "All Recipes", "./include/frying_pan.png", rec_names)    
+    construct_main_index("Recipebook", "./include/frying_pan.png", rec_names)    
     for rec in rec_names:
         construct_rec_index(rec)
     #construct_fridgestore()
