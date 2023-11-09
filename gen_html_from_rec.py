@@ -302,5 +302,4 @@ def refresh():
         construct_rec_index(rec)
     #construct_fridgestore()
 
-construct_recsubmit(get_recs())
-#refresh()
+refresh()
