@@ -181,20 +181,15 @@ def gen_intsubmit_head(title):
         <link rel="stylesheet" type="text/css" href="./include/main.css"/>
         </head>'''
 
-def gen_main_header(title, img_src='./include/fridge.jpeg', redirect="./routes/fridgestore_collect.html"):
+def gen_main_header(title):
     return f'''
     <body>
     <div class="content">
         <h1>{title}</h1>
-    <div class='teaser-box'>
-    <a href="{redirect}">
-    <img class='teaser-img' src='{img_src}'></img>
-    </a>
-    </div>
     </div>
     <div class="content" id="content">
     '''
-def gen_header(title, home_img=False, home_img_src="../include/frying_pan.png", redirect="../index.html"):
+def gen_header(title, home_img=False, redirect="../index.html"):
     mtitle = strip_underscores(title)
     if not home_img:
         return f'''
@@ -211,7 +206,7 @@ def gen_header(title, home_img=False, home_img_src="../include/frying_pan.png", 
             <h1>{mtitle}</h1>
         <div class='teaser-box'>
         <a href="{redirect}">
-        <img class='teaser-img' src='{home_img_src}'></img>
+        [Return to Integrations Hub]
         </a>
         </div>
         </div>
