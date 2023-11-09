@@ -23,10 +23,16 @@ html generation for arbitrary .rec contents<br/>
 <br/>
 
 =====================================<br/>
+Vision for Next Steps<br /> 
+=====================================<br/>
+The home index should be a portfolio of classic dishes I can make with ease and expertise. The Fridge Icon should take one to a page mapped to what's prepped to be fried or baked at will in my kitchen. Ideas should germinate from the index and encounters should dawn from the fridgepage.<br/>
+
+=====================================<br/>
 Desired Features/TODO:<br/>
 =====================================<br/>
 --Functionality<br/>
 [ ] Element-relation framework<br/>
+[ ] Fridge -> Prep<br/>
 Navigation and Organization<br/>
 [x] Add more recipes<br/>
 [x] Frying Pan img src in routes leads back to home<br/>
