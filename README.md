@@ -20,17 +20,13 @@ python recipe class<br/>
 html generation for index<br/>
 github.io site launch<br/>
 html generation for arbitrary .rec contents<br/>
-discovery of pyscript<br/>
 <br/>
 
 =====================================<br/>
 Desired Features/TODO:<br/>
 =====================================<br/>
---Framework<br/>
-[ ] pyscript text input for new rec<br/>
-[ ] pyscript persistent filesystem<br/>
-[x] pyscript get from local file<br/>
 --Functionality<br/>
+[ ] Element-relation framework<br/>
 Navigation and Organization<br/>
 [x] Add more recipes<br/>
 [x] Frying Pan img src in routes leads back to home<br/>
@@ -38,7 +34,7 @@ Navigation and Organization<br/>
 [ ] Collections/Genres of recipies<br/>
 [ ] Regex/keyword search<br/>
 [ ] list possible recipes given constraints(for fridgestore)<br/>
-[ ] Track Recipes<br/>
+[ ] Track Recipes(Button for Completion)<br/>
 [ ] Main Page with recents, favorites, and reccomendations/predictions<br/>
 Fridgestore<br />
 [ ] Show recipies avialable for each entry<br/>
