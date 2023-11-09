@@ -156,8 +156,6 @@ def gen_head(title, main=False):
         <title>{title}</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./include/main.css"/>
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         </head>'''
     else:
         return f'''<html><head>
@@ -173,12 +171,6 @@ def gen_recfetch_head(title, recslist):
         <title>{title}</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./include/main.css"/>
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-        <py-config>
-            [[fetch]]
-            files = {recslist}
-        </py-config>
         </head>'''
 
 def gen_recsubmit_head(title):
@@ -187,8 +179,6 @@ def gen_recsubmit_head(title):
         <title>{title}</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./include/main.css"/>
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         </head>'''
 
 def gen_main_header(title, subtitle, img_src='./include/fridge.jpeg', redirect="./routes/fridgestore_collect.html"):
@@ -204,7 +194,6 @@ def gen_main_header(title, subtitle, img_src='./include/fridge.jpeg', redirect="
     </div>
     <div class="content" id="content">
     <h1 id="xsub">{subtitle}</h1>
-    <py-script>display("Cook it up", target="xsub")</py-script>
     '''
 def gen_header(title, home_img=False, home_img_src="../include/frying_pan.png", redirect="../index.html"):
     mtitle = strip_underscores(title)
@@ -294,31 +283,9 @@ def construct_fridgestore():
 
 def construct_recsubmit(all_recs):
 
-    def gen_recsubmit_pyscript(fn, contents):
-        return f'''<py-script>
-        from js import Object
-        import pyodide_js 
-        from pyodide.ffi import to_js
-        import os
-        import sys
-
-        def fs_callback():
-            pass
-
-        pyodide_js.FS.mkdir("/mnt")
-        pyodide_js.FS.mount(pyodide_js.FS.filesystems.IDBFS, to_js({{"root":"."}}, dict_converter=Object.fromEntries), "/mnt")
-        pyodide_js.FS.syncfs(to_js(True), to_js(fs_callback()))
-        sys.path.append("/mnt")
-
-        #with open("/mnt/test.txt", "w") as test_out:
-        #    test_out.write("testingtesting")
-        display(os.listdir("/mnt"), target="termout")
-        </py-script>
-        '''
     #all_recs_mod = ["./rec/" + rec + ".rec" for rec in all_recs]
     recsubmit = ""
     recsubmit += gen_recsubmit_head("Submit Recipe")
-    recsubmit += gen_recsubmit_pyscript("'rec/pyscript_testing.rec'", "'pyscript testing\ntesttest'")
     recsubmit += "<p id='termout'>Nothing to See<p>"
     recsubmit += gen_tail()
 
