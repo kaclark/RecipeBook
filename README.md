@@ -20,6 +20,8 @@ python recipe class<br/>
 html generation for index<br/>
 github.io site launch<br/>
 html generation for arbitrary .rec contents<br/>
+integrations system convention<br/>
+UPC/Barcode tracking<br/>
 <br/>
 
 =====================================<br/>
@@ -29,6 +31,7 @@ The home index should be a portfolio of classic dishes I can make with ease and 
 
 Furthermore, .rec files were imagined to be static. I'm now experimenting with .prep files and recording their relations with other elements. I'm considering having .elt files for purchased items with UPC Bardcode data appended to them.Maybe different garlic powders go into the same .rec. The .int integration of .prep and .elt system will be sensitive to this granularity<br/>
 
+The website interface will be designed with webscraping and terminal friendly browsing in mind. It is a database that is readily displayed<br/>
 =====================================<br/>
 Desired Features/TODO:<br/>
 =====================================<br/>
@@ -36,19 +39,20 @@ Desired Features/TODO:<br/>
 [ ] Element-relation framework<br/>
 [ ] Fridge -> Prep<br/>
 [ ] Record Recipe Activation(Card Format)<br/>
+[x] Webscrape for terminal client<br/>
 Navigation and Organization<br/>
+[ ] History Page[todoist integration]<br>
+[x] Track Recipes(Button for Completion)<br/>
+[x] Todoist integration (Temporary Database)<br/>
 [x] Add more recipes<br/>
-[x] Frying Pan img src in routes leads back to home<br/>
+[x] routes lead back to home<br/>
 [ ] Navigation Bar<br/>
 [ ] Collections/Genres of recipies<br/>
 [ ] Regex/keyword search<br/>
 [ ] list possible recipes given constraints(for fridgestore)<br/>
-[ ] Track Recipes(Button for Completion)<br/>
 [ ] Main Page with recents, favorites, and reccomendations/predictions<br/>
 Fridgestore<br />
 [ ] Show recipies avialable for each entry<br/>
-[x] Todoist integration (Temporary Database)<br/>
-[x] UPC Barcode scanning<br />
 --User Experience<br/>
 [x] mobile friendly html page generation<br/>
 [x] simple html generation for index<br />

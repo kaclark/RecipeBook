@@ -132,6 +132,8 @@ class Recipe:
             html_stream += self.to_p(eq)
         html_stream += self.to_h1("Ingredients")
         for ing in self.ingredients:
+            if "*" in ing:
+                print("TODO: Pages for elements(.elt); link from ing listings")
             html_stream += self.to_p(ing)
         html_stream += self.to_h1("Instructions")
         for ind, step in enumerate(self.steps):
@@ -291,7 +293,7 @@ def construct_intsubmit(all_recs):
 
 def refresh():
     int_names = get_ints()
-    construct_main_index("Recipebook", "./include/frying_pan.png", int_names) 
+    construct_main_index("Integrations Hub", "./include/frying_pan.png", int_names) 
     for xint in int_names:
         construct_int_index(xint)
     #construct_fridgestore()
