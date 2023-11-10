@@ -36,12 +36,15 @@ The website interface will be designed with webscraping and terminal friendly br
 Desired Features/TODO:<br/>
 =====================================<br/>
 --Functionality<br/>
+[ ] .elt -> .html; a href from .int -> .html<br/>
 [ ] Element-relation framework<br/>
 [ ] Fridge -> Prep<br/>
 [ ] Record Recipe Activation(Card Format)<br/>
 [x] Webscrape for terminal client<br/>
 Navigation and Organization<br/>
 [ ] History Page[todoist integration]<br>
+[ ] History by Prep Int and Elt<br>
+[ ] Compile and Display Integration Events<br/>
 [x] Track Recipes(Button for Completion)<br/>
 [x] Todoist integration (Temporary Database)<br/>
 [x] Add more recipes<br/>
@@ -51,7 +54,6 @@ Navigation and Organization<br/>
 [ ] Regex/keyword search<br/>
 [ ] list possible recipes given constraints(for fridgestore)<br/>
 [ ] Main Page with recents, favorites, and reccomendations/predictions<br/>
-Fridgestore<br />
 [ ] Show recipies avialable for each entry<br/>
 --User Experience<br/>
 [x] mobile friendly html page generation<br/>
@@ -59,10 +61,7 @@ Fridgestore<br />
 [x] github.io page <br/>
 [x] .rec to html for links in main index <br/>
 [ ] Flash Recipes<br/>
---Aesthetic<br/>
-[ ] Flexbox CSS for main index
 [ ] 'Card' Component Style
-[ ] Add Images to recurring elements(pot, pan, salt and pepper)<br/>
 <br/>
 
 =====================================<br/>
