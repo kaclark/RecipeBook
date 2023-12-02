@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+
+x_name = input("Element Name: ")
+x_barcode = input("Element Barcode: ")
+x_description = input("Element Description: ")
+x_type = input("Element Type: ")
+
+export_string = ""
+export_string += "&N\n" + x_name + "\n"
+export_string += "&B\n" + x_barcode + "\n"
+export_string += "&D\n" + x_description + "\n"
+export_string += "&T\n" + x_type
+
+f_name = x_name.replace(" ", "_")
+with open("elt/" + f_name + ".elt", "w") as elt_out:
+    elt_out.write(export_string)
