@@ -53,7 +53,7 @@ def get_elt_barcode(elt_path):
             barcode = elt_data[1] + "[" + elt_data[l_ind + 1] + "]"
     #move to front for later accesses
     with open(elt_path, "a") as elt_append:
-        elt_append.write(str(date.today()))
+        elt_append.write(str(date.today()) + "\n")
     return barcode
 
 def get_pseud_elt(husk):
