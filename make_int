@@ -1,0 +1,96 @@
+#!/usr/bin/python3
+
+from pathlib import Path
+import os
+from simple_term_menu import TerminalMenu
+from datetime import date
+
+def input_chain(message, elt=False, payload=""):
+    chain = []
+    sink = ""
+    while sink != "break":
+        if not elt:
+            sink = input(message) 
+        else:
+            sink = elt_select(payload)
+        if sink != "break":
+            chain.append(sink)
+    return chain
+
+def main_loop():
+    x_name = input("Int Name: ")
+    f_name = x_name.replace(" ", "_")
+    e_chain = input_chain("(+)Equipment: ")
+
+    w_elts = load_elts()
+    i_chain = input_chain("(+)Element: ", elt=True, payload=w_elts)
+    s_chain = input_chain("(+)Step: ")
+
+    export_string = ""
+    export_string += "&N\n" + f_name + "\n"
+    export_string += "&E\n" + "\n".join(e_chain) + "\n"
+    export_string += "&I\n" + "\n".join(i_chain) + "\n"
+    export_string += "&S\n" + "\n".join(s_chain) + "\n"
+
+    with open("int/" + f_name + ".int", "w") as int_out:
+        int_out.write(export_string)
+
+def load_elts():
+    elts = []
+    #to ensure move-to-front paradigm file should later be modified to change behavior here
+    x_paths = sorted(Path("./elt/").iterdir(), key=os.path.getmtime, reverse=True)
+    #for x_path in Path("./elt/").glob("*.elt"):
+    for x_path in x_paths:
+        x_name = str(x_path).split("/")[-1].split(".elt")[0]
+        elts.append((x_name, x_path))
+    return elts
+
+def get_elt_barcode(elt_path):
+    with open(elt_path, "r") as elt_in:
+        elt_data = [l.split('\n')[0] for l in elt_in.readlines()]
+    for l_ind, line in enumerate(elt_data):
+        if "&B" in line:
+            barcode = elt_data[1] + "[" + elt_data[l_ind + 1] + "]"
+    #move to front for later accesses
+    with open(elt_path, "a") as elt_append:
+        elt_append.write(str(date.today()))
+    return barcode
+
+def get_pseud_elt(husk):
+    ing_name = input("Ingredient Name: ")
+    return ing_name
+
+def elt_select(elts):
+    #elts: [(elt_name, elt_path) | *.elt in elt/]
+    elt_names = [e[0] for e in elts]
+    elt_paths = [e[1] for e in elts]
+    #existing elements can be selected to include as elt
+    #in this case, elt is elt_name[#barcode]
+    #to get the barcode, the elt path should be used 
+    #the file is opened and the barcode extracted
+    #However is elt does not exist, the name should be asked for
+    menu_choices = ["[break]","[Custom]"] + elt_names
+
+    #to make a menu we need choices (elts)
+    #and functions these choices map to
+    #functions are stored with their parameters
+    #that way they don't run until selected
+    elt_map = {e[0]: (get_elt_barcode, e[1]) for e in elts} 
+    choice_outcome_map = {**{"[Custom]": (get_pseud_elt, ""), "[break]": (str, "break")}, **elt_map}
+
+    #set_menu(elt_names, elt_map, actualize_function)
+    return set_menu(menu_choices, choice_outcome_map)
+
+
+def set_menu(options, options_hash_table):
+
+    terminal_menu = TerminalMenu(options)
+    menu_entry_index = terminal_menu.show()
+    return actualize_function(options_hash_table[options[menu_entry_index]])
+
+def actualize_function(func_param_pair):
+    #func_param_pair: (function, paramters)
+    func, params = func_param_pair
+    return func(params)
+
+main_loop()

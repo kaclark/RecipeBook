@@ -9,7 +9,8 @@ export_string = ""
 export_string += "&N\n" + x_name + "\n"
 export_string += "&B\n" + x_barcode + "\n"
 export_string += "&D\n" + x_description + "\n"
-export_string += "&T\n" + x_type
+export_string += "&T\n" + x_type + "\n"
+export_string += "&H\n"
 
 f_name = x_name.replace(" ", "_")
 with open("elt/" + f_name + ".elt", "w") as elt_out:
