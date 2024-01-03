@@ -59,8 +59,7 @@ async function send_data(store_string) {
     changeHandler: function (items) {     
 	console.log(items)
       }
-    }
-  })
+    })
  
   await userbase.insertItem({
     databaseName: 'demo',
@@ -156,7 +155,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     int_button.style.display = 'none'
     if (sessionStorage) sessionStorage.clear()
      	send_data(string.concat(
-		"&N;",i_name,";","&E",i_e,";",
+		"&N;",i_name,";","&E;",i_e,";",
 	        "&I;",i_elt1,";",i_elt2,";",elt3,
 	        "&S;",i_s1,";",i_s2,";",i_s3
 	))
