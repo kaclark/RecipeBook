@@ -23,12 +23,13 @@ async function start() {
     password: "test_psswrd"
   })
 
-  db_item1.innerText = 'Opening database...'
+  //db_item1.innerText = 'Opening database...'
   await userbase.openDatabase({
     databaseName: 'demo',
     changeHandler: function (items) {     
       if (items.length) {
-        db_item2.innerText = items[0].item
+        //db_item2.innerText = items[0].item
+        console.log(items)
       }
     }
   })
@@ -88,8 +89,8 @@ async function get_data() {
     databaseName: 'demo',
     changeHandler: function (items) {     
       console.log(items)
-      db_item1.innerText = items[0].item	
-      db_item2.innerText = items[items.length -1].item	
+      //db_item1.innerText = items[0].item	
+      //db_item2.innerText = items[items.length -1].item	
       for (let i = 0; i < items.length; i++){
 	console.log(items[i].itemId, items[i].item)
       }
