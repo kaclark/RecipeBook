@@ -42,24 +42,23 @@ async function get_user(u_name, p_word) {
   //"test_acct",
   //"test_psswrd"
   await userbase.signIn({ username: u_name, password: p_word })
-  console.log
 
 }
 
 //pressed second
-async function push_data() { 
+async function get_data() { 
 
   userbase.init({ 
     appId: 'f3dece1f-eb4b-4a40-bab7-bf63746e1c8d'
   })
   
-  title.innerText = 'Opening database...'
+  load_bar.innerText = 'Opening database...'
   await userbase.openDatabase({
     databaseName: 'demo',
     changeHandler: function (items) {     
       console.log(items)
-      title.innerText = items[0].item	
-      post.innerText = items[items.length -1].item	
+      db_item1.innerText = items[0].item	
+      db_item2.innerText = items[items.length -1].item	
       for (let i = 0; i < items.length; i++){
 	console.log(items[i].itemId, items[i].item)
       }
@@ -78,7 +77,6 @@ async function push_data() {
 
 }
 
-
 // code for the start button
 window.addEventListener("DOMContentLoaded", (event) => {
     //const button = document.getElementById('btn')
@@ -87,7 +85,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
      //if (sessionStorage) sessionStorage.clear()
      //start()
     //})
-    const title = document.getElementById('title')
+    const load_bar = document.getElementById('load_bar')
+    const db_item1 = document.getElementById('db_item1')
+    const db_item2 = document.getElementById('db_item2')
 
     //freezing during testing of login form input	
     //const button2 = document.getElementById('btn2')
@@ -116,11 +116,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 });
 
-    const button3 = document.getElementById('btn3')
+    const button3 = document.getElementById('get_user_data')
     button3.addEventListener('click', function () { 
       button3.style.display = 'none'
       if (sessionStorage) sessionStorage.clear()
-      push_data()
+      get_data()
     })
 
 });

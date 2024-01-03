@@ -292,14 +292,15 @@ def test_login():
             <input type="text" id="username" class="form-control" placeholder="Enter your Username...">
             <input type="password" id="password" class="form-control" placeholder="Enter your Password...">
             <button type="submit">Submit</button>
+            <p id="load_bar"></p>
         </form>
     </div>
 
     <div class="outer-wrap">
-      <p id="title"></p>
-      <p id="post"></p>
+      <p id="db_item1"></p>
+      <p id="db_item2"></p>
       <div class="button-container">
-        <button type="submit", id="btn3">Get User Data</button>
+        <button type="submit", id="get_user_data">Get User Data</button>
       </div>
     </div>
     '''
