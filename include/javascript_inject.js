@@ -33,38 +33,15 @@ async function start() {
 }
 
 //should be pressed first
-async function get_user() { 
+async function get_user(u_name, p_word) { 
 
   userbase.init({ 
     appId: 'f3dece1f-eb4b-4a40-bab7-bf63746e1c8d'
   })
-    
-  let loginForm = document.getElementById("loginForm");
-
-  loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  let usrname = document.getElementById("username");
-  let pssword = document.getElementById("password");
-
-  if (usrname.value == "" || pssword.value == "") {
-     alert("Ensure you input a value in both fields!");
-  } else {
-    // perform operation with form input
-    title.innerText = 'Retreiving account...'
-    await userbase.signIn({ 
-      //"test_acct",
-      username: usrname.value, 
-      //"test_psswrd"
-      password: pssword.value  
-    })
-   alert("This form has been successfully submitted!");
-   console.log(
-      `This form has a username of ${username.value} and password of ${password.value}`
-    );
-  }
-});
-  
+  title.innerText = 'Retreiving account...'
+  //"test_acct",
+  //"test_psswrd"
+  await userbase.signIn({ username: u_name, password: p_word })
 
 }
 
@@ -127,6 +104,25 @@ window.addEventListener("DOMContentLoaded", (event) => {
       if (sessionStorage) sessionStorage.clear()
       push_data()
     })
+    let loginForm = document.getElementById("loginForm");
+
+    loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let usrname = document.getElementById("username");
+    let pssword = document.getElementById("password");
+
+    if (usrname.value == "" || pssword.value == "") {
+      alert("Ensure you input a value in both fields!");
+    } else {
+      // perform operation with form input
+      get_user(usrname.value, pssword.value)
+   alert("This form has been successfully submitted!");
+   console.log(
+      `This form has a username of ${username.value} and password of ${password.value}`
+    );
+  }
+});
 
 });
 
