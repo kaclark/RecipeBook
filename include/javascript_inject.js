@@ -83,11 +83,11 @@ async function push_data() {
 
 // code for the start button
 window.addEventListener("DOMContentLoaded", (event) => {
-    const button = document.getElementById('btn')
-    button.addEventListener('click', function () { 
-      button.style.display = 'none'
-      if (sessionStorage) sessionStorage.clear()
-      start()
+    //const button = document.getElementById('btn')
+    //button.addEventListener('click', function () { 
+     //button.style.display = 'none'
+     //if (sessionStorage) sessionStorage.clear()
+     //start()
     })
     const title = document.getElementById('title')
 
@@ -98,13 +98,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     //  if (sessionStorage) sessionStorage.clear()
     //  get_user()
     //})
-
-    const button3 = document.getElementById('btn3')
-    button3.addEventListener('click', function () { 
-      button3.style.display = 'none'
-      if (sessionStorage) sessionStorage.clear()
-      push_data()
-    })
     let loginForm = document.getElementById("loginForm");
 
     loginForm.addEventListener("submit", (e) => {
@@ -124,6 +117,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     );
   }
 });
+
+    const button3 = document.getElementById('btn3')
+    button3.addEventListener('click', function () { 
+      button3.style.display = 'none'
+      if (sessionStorage) sessionStorage.clear()
+      push_data()
+    })
 
 });
 
