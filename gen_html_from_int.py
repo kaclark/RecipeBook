@@ -294,6 +294,18 @@ def test_login():
             <button type="submit">Submit</button>
         </form>
     </div>
+
+    <div class="outer-wrap">
+      <h1 id="title"></h1>
+      <div class="button-container">
+        <a id="btn3" class="btn btn-1">
+          <svg>
+            <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+          </svg>
+          Get User Data
+        </a>
+      </div>
+    </div>
     '''
 
 def strip_underscores(string):
@@ -311,7 +323,6 @@ def construct_main_index(title, img_src, ints):
     #TODO Refactor
     index_output += javascript_inject()
     index_output += gen_main_header(title)
-    index_output += test_button() 
     index_output += test_login()
     for xint in ints:
         index_output += list_recipe(xint)

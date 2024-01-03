@@ -42,6 +42,7 @@ async function get_user(u_name, p_word) {
   //"test_acct",
   //"test_psswrd"
   await userbase.signIn({ username: u_name, password: p_word })
+  console.log
 
 }
 
