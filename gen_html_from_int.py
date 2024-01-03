@@ -304,6 +304,7 @@ def test_login():
           </svg>
           Get User Data
         </a>
+        <p id="post"></p>
       </div>
     </div>
     '''
