@@ -331,7 +331,7 @@ def test_int_capture():
             <input type="text" id="Step1" class="form-control" placeholder="instructions">
             <input type="text" id="Step2" class="form-control" placeholder="instructions">
             <input type="text" id="Step3" class="form-control" placeholder="instructions">
-            <button type="submit" id="send_int">Submit</button>
+            <button type="submit">Submit</button>
             <p id="load_bar"></p>
         </form>
     </div>
