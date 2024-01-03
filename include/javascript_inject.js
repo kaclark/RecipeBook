@@ -38,12 +38,33 @@ async function get_user() {
   userbase.init({ 
     appId: 'f3dece1f-eb4b-4a40-bab7-bf63746e1c8d'
   })
+    
+  let loginForm = document.getElementById("loginForm");
+
+  loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let usrname = document.getElementById("username");
+  let pssword = document.getElementById("password");
+
+  if (usrname.value == "" || pssword.value == "") {
+     alert("Ensure you input a value in both fields!");
+  } else {
+    // perform operation with form input
+    title.innerText = 'Retreiving account...'
+    await userbase.signIn({ 
+      //"test_acct",
+      username: usrname.value, 
+      //"test_psswrd"
+      password: pssword.value  
+    })
+   alert("This form has been successfully submitted!");
+   console.log(
+      `This form has a username of ${username.value} and password of ${password.value}`
+    );
+  }
+});
   
-  title.innerText = 'Retreiving account...'
-  await userbase.signIn({ 
-    username: "test_acct",
-    password: "test_psswrd"
-  })
 
 }
 
@@ -92,12 +113,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     })
     const title = document.getElementById('title')
 
-    const button2 = document.getElementById('btn2')
-    button2.addEventListener('click', function () { 
-      button2.style.display = 'none'
-      if (sessionStorage) sessionStorage.clear()
-      get_user()
-    })
+    //freezing during testing of login form input	
+    //const button2 = document.getElementById('btn2')
+    //button2.addEventListener('click', function () { 
+    //  button2.style.display = 'none'
+    //  if (sessionStorage) sessionStorage.clear()
+    //  get_user()
+    //})
 
     const button3 = document.getElementById('btn3')
     button3.addEventListener('click', function () { 
@@ -106,26 +128,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
       push_data()
     })
 
-    let loginForm = document.getElementById("loginForm");
-
-    loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    let username = document.getElementById("username");
-    let password = document.getElementById("password");
-
-    if (username.value == "" || password.value == "") {
-     alert("Ensure you input a value in both fields!");
-    } else {
-    // perform operation with form input
-    alert("This form has been successfully submitted!");
-    console.log(
-      `This form has a username of ${username.value} and password of ${password.value}`
-    );
-    username.value = "";
-    password.value = "";
-  }
-});
 });
 
 
