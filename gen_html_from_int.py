@@ -300,6 +300,7 @@ def construct_main_index(title, img_src, ints):
     #TODO Refactor
     index_output += javascript_inject()
     index_output += gen_main_header(title)
+    index_output += test_button() 
     for xint in ints:
         index_output += list_recipe(xint)
     index_output += gen_tail()
