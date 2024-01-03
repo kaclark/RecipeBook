@@ -296,15 +296,10 @@ def test_login():
     </div>
 
     <div class="outer-wrap">
-      <h1 id="title"></h1>
+      <p id="title"></p>
+      <p id="post"></p>
       <div class="button-container">
-        <a id="btn3" class="btn btn-1">
-          <svg>
-            <rect x="0" y="0" fill="none" width="100%" height="100%"/>
-          </svg>
-          Get User Data
-        </a>
-        <p id="post"></p>
+        <button type="submit", id="btn3">Get User Data</button>
       </div>
     </div>
     '''

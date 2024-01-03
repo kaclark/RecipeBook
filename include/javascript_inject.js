@@ -58,12 +58,10 @@ async function push_data() {
     databaseName: 'demo',
     changeHandler: function (items) {     
       console.log(items)
+      title.innerText = items[0].item	
       post.innerText = items[items.length -1].item	
       for (let i = 0; i < items.length; i++){
 	console.log(items[i].itemId, items[i].item)
-      }
-      if (items.length) {
-        title.innerText = items[0].item
       }
     }
   })

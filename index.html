@@ -64,12 +64,10 @@ async function push_data() {
     databaseName: 'demo',
     changeHandler: function (items) {     
       console.log(items)
+      title.innerText = items[0].item	
       post.innerText = items[items.length -1].item	
       for (let i = 0; i < items.length; i++){
 	console.log(items[i].itemId, items[i].item)
-      }
-      if (items.length) {
-        title.innerText = items[0].item
       }
     }
   })
@@ -152,15 +150,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
     </div>
 
     <div class="outer-wrap">
-      <h1 id="title"></h1>
+      <p id="title"></p>
+      <p id="post"></p>
       <div class="button-container">
-        <a id="btn3" class="btn btn-1">
-          <svg>
-            <rect x="0" y="0" fill="none" width="100%" height="100%"/>
-          </svg>
-          Get User Data
-        </a>
-        <p id="post"></p>
+        <button type="submit", id="btn3">Get User Data</button>
       </div>
     </div>
     <a href='./routes/Garlic_Butter_Pretzels.html'><p>Garlic Butter Pretzels</p></a>
