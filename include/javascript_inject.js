@@ -153,12 +153,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const int_button = document.getElementById('send_int')
     int_button.addEventListener('click', function () { 
     int_button.style.display = 'none'
-    if (sessionStorage) sessionStorage.clear()
-     	send_data("&N;".concat(
-		i_name,";","&E;",i_e,";",
+    let int_string = "&N;".concat(i_name,";","&E;",i_e,";",
 	        "&I;",i_elt1,";",i_elt2,";",elt3,
 	        "&S;",i_s1,";",i_s2,";",i_s3
-	))
+	)
+
+    if (sessionStorage) sessionStorage.clear()
+     	send_data(int_string)    
     })
 
 });
