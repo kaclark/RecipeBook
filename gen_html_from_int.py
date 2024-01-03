@@ -284,6 +284,17 @@ def test_button():
             
     '''
 
+def test_login():
+    return f'''
+    <div class="container">
+        <form action="" id="loginForm">
+            <h1>Login</h1>
+            <input type="text" id="username" class="form-control" placeholder="Enter your Username...">
+            <input type="password" id="password" class="form-control" placeholder="Enter your Password...">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    '''
 
 def strip_underscores(string):
     return " ".join([f.capitalize() for f in string.split("_")])
@@ -301,6 +312,7 @@ def construct_main_index(title, img_src, ints):
     index_output += javascript_inject()
     index_output += gen_main_header(title)
     index_output += test_button() 
+    index_output += test_login()
     for xint in ints:
         index_output += list_recipe(xint)
     index_output += gen_tail()
