@@ -159,9 +159,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let i_s2 = document.getElementById("Step2");
     let i_s3 = document.getElementById("Step3");
   
-    const int_button = document.getElementById('send_int')
-    int_button.addEventListener('click', function () { 
-    int_button.style.display = 'none'
     let int_string = "&N;".concat(i_name.value,";","&E;",i_e.value,";",
 	        "&I;",i_elt1.value,";",i_elt2.value,";",elt3.value,
 	        "&S;",i_s1.value,";",i_s2.value,";",i_s3.value
@@ -169,11 +166,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
     console.log("before sent", int_string)
     if (sessionStorage) sessionStorage.clear()
      	send_data(int_string)    
-    })
+    });
 
 });
 
-});
 
 
 </script>
