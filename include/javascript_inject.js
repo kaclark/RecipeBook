@@ -88,7 +88,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
      //button.style.display = 'none'
      //if (sessionStorage) sessionStorage.clear()
      //start()
-    })
+    //})
     const title = document.getElementById('title')
 
     //freezing during testing of login form input	
