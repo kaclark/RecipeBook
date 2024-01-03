@@ -305,6 +305,38 @@ def test_login():
     </div>
     '''
 
+def f_login():
+    return f'''
+    <div class="container">
+        <form action="" id="loginForm">
+            <h1>Login</h1>
+            <input type="text" id="username" class="form-control" placeholder="Enter your Username...">
+            <input type="password" id="password" class="form-control" placeholder="Enter your Password...">
+            <button type="submit">Submit</button>
+            <p id="load_bar"></p>
+        </form>
+    </div>
+    '''
+
+def test_int_capture():
+    return f'''
+    <div class="container">
+        <form action="" id="int_form">
+            <h1>Integration</h1>
+            <input type="text" id="Name" class="form-control" placeholder="Enter your Username...">
+            <input type="text" id="Equipment" class="form-control" placeholder="Equipment(e1;e2;...;en) for all n in n">
+            <input type="text" id="Ingredient1" class="form-control" placeholder="Ingredient;Barcode">
+            <input type="text" id="Ingredient2" class="form-control" placeholder="Ingredient;Barcode">
+            <input type="text" id="Ingredient3" class="form-control" placeholder="Ingredient;Barcode">
+            <input type="text" id="Step1" class="form-control" placeholder="instructions">
+            <input type="text" id="Step2" class="form-control" placeholder="instructions">
+            <input type="text" id="Step3" class="form-control" placeholder="instructions">
+            <button type="submit" id="send_int">Submit</button>
+            <p id="load_bar"></p>
+        </form>
+    </div>
+    '''
+
 def strip_underscores(string):
     return " ".join([f.capitalize() for f in string.split("_")])
 
@@ -318,9 +350,11 @@ def construct_main_index(title, img_src, ints):
     #img_src should be provided here, but
     #default vals are being used fior now
     #TODO Refactor
-    #index_output += javascript_inject()
+    index_output += javascript_inject()
     index_output += gen_main_header(title)
     #index_output += test_login()
+    index_output += f_login()
+    index_output += test_int_capture()
     for xint in ints:
         index_output += list_recipe(xint)
     index_output += gen_tail()
