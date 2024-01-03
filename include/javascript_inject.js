@@ -1,10 +1,4 @@
-<html><head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Integrations Hub</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="./include/main.css"/>
-        </head>
-    <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+<script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
 <script type="text/javascript">
 
 //this can only be ran with new username and password
@@ -113,20 +107,3 @@ window.addEventListener("DOMContentLoaded", (event) => {
     })
 });
 </script>
-    
-    <body>
-    <div class="content">
-        <h1>Integrations Hub</h1>
-    </div>
-    <div class="content" id="content">
-    <a href='./routes/mushroom_beef_sandwich.html'><p>Mushroom Beef Sandwich</p></a>
-	<a href='./routes/balsamic_jalapeno_flatbread.html'><p>Balsamic Jalapeno Flatbread</p></a>
-	<a href='./routes/bbq_pork_sandwich.html'><p>Bbq Pork Sandwich</p></a>
-	<a href='./routes/miso_soup_and_crackers.html'><p>Miso Soup And Crackers</p></a>
-	<a href='./routes/feta_tomato_pasta.html'><p>Feta Tomato Pasta</p></a>
-	<a href='./routes/Garlic_Butter_Pretzels.html'><p>Garlic Butter Pretzels</p></a>
-	
-    </div>
-    </body>
-    </html>
-    

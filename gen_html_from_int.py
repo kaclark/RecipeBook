@@ -224,6 +224,67 @@ def gen_tail():
     </html>
     '''
 
+def javascript_inject():
+    with open("./include/javascript_inject.js", "r") as js_in:
+        injection = [l.split("\n")[0] for l in js_in.readlines()]
+    injection = "\n".join(injection)
+    return f'''
+    {injection}
+    '''
+
+def test_button():
+    return f'''
+    <div class="outer-wrap">
+      <h1 id="title"></h1>
+      <div class="button-container">
+        <a id="btn" class="btn btn-1">
+          <svg>
+            <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+          </svg>
+          Create New Account
+        </a>
+      </div>
+    </div>
+
+    <div class="outer-wrap">
+      <h1 id="title"></h1>
+      <div class="button-container">
+        <a id="btn2" class="btn btn-1">
+          <svg>
+            <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+          </svg>
+          Log In
+        </a>
+      </div>
+    </div>
+
+    <div class="outer-wrap">
+      <h1 id="title"></h1>
+      <div class="button-container">
+        <a id="btn3" class="btn btn-1">
+          <svg>
+            <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+          </svg>
+          Push Data
+        </a>
+      </div>
+    </div>
+
+    <div class="outer-wrap">
+    <p id="post"></p>
+    <div class="button-container">
+        <a id="btn4" class="btn btn-1">
+          <svg>
+            <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+          </svg>
+          [Post]
+        </a>
+      </div>
+    </div>
+            
+    '''
+
+
 def strip_underscores(string):
     return " ".join([f.capitalize() for f in string.split("_")])
 
@@ -237,6 +298,7 @@ def construct_main_index(title, img_src, ints):
     #img_src should be provided here, but
     #default vals are being used fior now
     #TODO Refactor
+    index_output += javascript_inject()
     index_output += gen_main_header(title)
     for xint in ints:
         index_output += list_recipe(xint)
