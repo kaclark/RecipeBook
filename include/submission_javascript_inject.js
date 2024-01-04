@@ -116,7 +116,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let i_equip = document.getElementById("int_equip");            
     let i_elts = document.getElementById("int_elts");            
     let i_steps = document.getElementById("int_steps");            
-    let int_string = "&N;".concat(i_name.value,";&E;"i_equip.value,";&I;", i_elts.value, ";&S;",i_steps.value);
+    let int_string = "&N;".concat(i_name.value,";&E;",i_equip.value,";&I;", i_elts.value, ";&S;",i_steps.value);
     send_data(int_string)    
      //get_data()
   });
