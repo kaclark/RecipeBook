@@ -120,7 +120,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
      //send_data(i_name.value)    
      //console.log(i_name.value)
      //get_data()
-  }
   });
 	
 });
