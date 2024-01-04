@@ -141,15 +141,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
      //if (sessionStorage) sessionStorage.clear()
      //get_data()
     //})
-    const load_bar_2 = document.getElementById('load_bar_2')
     
+    const load_bar_2 = document.getElementById('load_bar_2')
     let int_form = document.getElementById("int_form");
     int_form.addEventListener("submit", (e) => {
     	e.preventDefualt();
     	let i_name = document.getElementById("Name");            
-  
-    	if (sessionStorage) sessionStorage.clear()
-     		send_data(i_name.value)    
+  	send_data(i_name.value)    
     	});
 
 });
