@@ -67,7 +67,7 @@ async function send_data(store_string) {
     item: store_string
   })
   
-  load_bar_2.innerText = 'Data Sent...'
+  load_bar_2.innerText = 'Data Sent...'.concat(store_string)
   console.log(store_string)
 
 }
@@ -116,10 +116,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let i_equip = document.getElementById("int_equip");            
     let i_elts = document.getElementById("int_elts");            
     let i_steps = document.getElementById("int_steps");            
-    console.log(i_name.value, i_equip.value, i_elts.value, i_steps.value);
-    console.log(i_name.value.concat(i_equip.value, i_elts.value, i_steps.value));
-     //send_data(i_name.value)    
-     //console.log(i_name.value)
+    let int_string = i_name.value.concat(i_equip.value,";", i_elts.value, ";",i_steps.value);
+    send_data(int_string)    
      //get_data()
   });
 	
