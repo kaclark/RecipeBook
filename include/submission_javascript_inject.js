@@ -41,10 +41,10 @@ async function get_user(u_name, p_word) {
   userbase.init({ 
     appId: 'f3dece1f-eb4b-4a40-bab7-bf63746e1c8d'
   })
+  load_bar_1.innerText = 'Retreiving account...'
   //"test_acct",
   //"test_psswrd"
   await userbase.signIn({ username: u_name, password: p_word })
-  load_bar_1.innerText = 'Logged In!'
 
 }
 
@@ -99,39 +99,27 @@ async function get_data() {
 
 // code for the start button
 window.addEventListener("DOMContentLoaded", (event) => {
-    //Frozen after test account was created
-    //const button = document.getElementById('btn')
-    //button.addEventListener('click', function () { 
-     //button.style.display = 'none'
-     //if (sessionStorage) sessionStorage.clear()
-     //start()
-    //})
-    
     //LOGIN
-    const load_bar_1 = document.getElementById('load_bar_1')
+    const load_bar_2 = document.getElementById('load_bar_2')
     const db_item = document.getElementById('db_item')
 
     //Frozen when test login was finalized
     //const db_item1 = document.getElementById('db_item1')
     //const db_item2 = document.getElementById('db_item2')
 
-    let loginForm = document.getElementById("loginForm");
+    let int_form = document.getElementById("int_form");
 
-    loginForm.addEventListener("submit", (e) => {
+    int_form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    let usrname = document.getElementById("username");
-    let pssword = document.getElementById("password");
-
-    if (usrname.value == "" && pssword.value == "") {
-      console.log("empty")
-    } else if (i_name.value == "") {
-      // perform operation with form input
-      get_user(usrname.value, pssword.value)
-      alert("This form has been successfully submitted!");	
-   console.log(
-      `This form has a username of ${usrname.value} and password of ${pssword.value}`
-    );
+    let i_name = document.getElementById("int_name");            
+    let i_equip = document.getElementById("int_equip");            
+    let i_elts = document.getElementById("int_elts");            
+    let i_steps = document.getElementById("int_steps");            
+    console.log(i_name, i_equip, i_elts, i_steps)
+     //send_data(i_name.value)    
+     //console.log(i_name.value)
+     //get_data()
   }
   });
 	

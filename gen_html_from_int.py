@@ -224,9 +224,13 @@ def gen_tail():
     </html>
     '''
 
-def javascript_inject():
-    with open("./include/javascript_inject.js", "r") as js_in:
-        injection = [l.split("\n")[0] for l in js_in.readlines()]
+def javascript_inject(version):
+    if version == "login":
+        with open("./include/javascript_inject.js", "r") as js_in:
+            injection = [l.split("\n")[0] for l in js_in.readlines()]
+    if version == "submission":
+        with open("./include/submission_javascript_inject.js", "r") as js_in:
+            injection = [l.split("\n")[0] for l in js_in.readlines()]
     injection = "\n".join(injection)
     return f'''
     {injection}
@@ -312,10 +316,8 @@ def f_login():
             <h1>Login</h1>
             <input type="text" id="username" class="form-control" placeholder="Enter your Username...">
             <input type="password" id="password" class="form-control" placeholder="Enter your Password...">
-            <input type="text" id="int_name" class="form-control" placeholder="Integration Name...">
             <button type="submit">Submit</button>
             <p id="load_bar_1"></p>
-            <p id="db_item"></p>
         </form>
     </div>
     '''
@@ -325,9 +327,13 @@ def test_int_capture():
     <div class="container">
         <form action="" id="int_form">
             <h1>Integration</h1>
-            <input type="text" id="int_name" class="form-control" placeholder="Enter your Username...">
+            <input type="text" id="int_name" class="form-control" placeholder="Integration Name...">
+            <input type="text" id="int_equip" class="form-control" placeholder="Equipment...">
+            <input type="text" id="int_elts" class="form-control" placeholder="Elements...">
+            <input type="text" id="int_steps" class="form-control" placeholder="Steps...">
             <button type="submit">Submit</button>
             <p id="load_bar_2"></p>
+            <p id="db_item"></p>
         </form>
     </div>
     '''
@@ -345,10 +351,11 @@ def construct_main_index(title, img_src, ints):
     #img_src should be provided here, but
     #default vals are being used fior now
     #TODO Refactor
-    index_output += javascript_inject()
+    index_output += javascript_inject("login")
     index_output += gen_main_header(title)
     #index_output += test_login()
     index_output += f_login()
+    index_output += f'''<a href="submission.html">Submit Integration</a>'''
     #index_output += test_int_capture()
     for xint in ints:
         index_output += list_recipe(xint)
@@ -373,6 +380,17 @@ def construct_int_index(xxint):
     index_output += xint.to_html()
     index_output += gen_tail() 
     with open("./routes/" + xxint + ".html", "w") as html_out:
+        html_out.write(index_output)
+    
+def construct_submission_index():
+    index_output = ""
+    index_output += gen_head("Integration Submission")
+    index_output += javascript_inject("submission")
+    index_output += gen_header("Integration Submission", home_img=True)
+    index_output += test_int_capture() 
+    index_output += gen_tail()
+    
+    with open("./submission.html", "w") as html_out:
         html_out.write(index_output)
 
 def construct_fridgestore():
@@ -406,6 +424,7 @@ def construct_intsubmit(all_recs):
 def refresh():
     int_names = get_ints()
     construct_main_index("Integrations Hub", "./include/frying_pan.png", int_names) 
+    construct_submission_index()
     for xint in int_names:
         construct_int_index(xint)
     #construct_fridgestore()
