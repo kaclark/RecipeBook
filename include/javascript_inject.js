@@ -155,7 +155,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let i_s3 = document.getElementById("Step3");
   
     let int_string = "&N;".concat(i_name.value,";","&E;",i_e.value,";",
-	        "&I;",i_elt1.value,";",i_elt2.value,";",elt3.value,
+	        "&I;",i_elt1.value,";",i_elt2.value,";",i_elt3.value,";",
 	        "&S;",i_s1.value,";",i_s2.value,";",i_s3.value
 	)
     console.log("before sent", int_string)
