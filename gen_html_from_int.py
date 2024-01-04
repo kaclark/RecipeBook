@@ -315,6 +315,7 @@ def f_login():
             <input type="text" id="int_name" class="form-control" placeholder="Integration Name...">
             <button type="submit">Submit</button>
             <p id="load_bar_1"></p>
+            <p id="db_item"></p>
         </form>
     </div>
     '''

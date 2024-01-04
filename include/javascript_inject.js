@@ -54,7 +54,7 @@ async function send_data(store_string) {
     appId: 'f3dece1f-eb4b-4a40-bab7-bf63746e1c8d'
   })
   
-  load_bar.innerText = 'Opening database...'
+  load_bar_1.innerText = 'Opening database...'
   await userbase.openDatabase({
     databaseName: 'demo',
     changeHandler: function (items) {     
@@ -67,7 +67,7 @@ async function send_data(store_string) {
     item: store_string
   })
   
-  load_bar_2.innerText = 'Data Sent...'
+  load_bar_1.innerText = 'Data Sent...'
   console.log(store_string)
 
 }
@@ -78,13 +78,13 @@ async function get_data() {
     appId: 'f3dece1f-eb4b-4a40-bab7-bf63746e1c8d'
   })
   
-  load_bar.innerText = 'Opening database...'
+  load_bar_1.innerText = 'Opening database...'
   await userbase.openDatabase({
     databaseName: 'demo',
     changeHandler: function (items) {     
       console.log(items)
       //db_item1.innerText = items[0].item	
-      //db_item2.innerText = items[items.length -1].item	
+      db_item.innerText = items[items.length -1].item	
       for (let i = 0; i < items.length; i++){
 	console.log(items[i].itemId, items[i].item)
       }
@@ -109,6 +109,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     
     //LOGIN
     const load_bar_1 = document.getElementById('load_bar_1')
+    const db_item = document.getElementById('db_item')
 
     //Frozen when test login was finalized
     //const db_item1 = document.getElementById('db_item1')
@@ -130,6 +131,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       get_user(usrname.value, pssword.value)
       alert("This form has been successfully submitted!");	
       send_data(i_name.value)    
+      get_data()
    console.log(
       `This form has a username of ${usrname.value} and password of ${pssword.value} with value of ${i_name.value}`
     );
