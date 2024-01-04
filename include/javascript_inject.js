@@ -121,15 +121,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     let usrname = document.getElementById("username");
     let pssword = document.getElementById("password");
+    let i_name = document.getElementById("int_name");            
 
     if (usrname.value == "" || pssword.value == "") {
       alert("Ensure you input a value in both fields!");
     } else {
       // perform operation with form input
       get_user(usrname.value, pssword.value)
-   alert("This form has been successfully submitted!");
+      alert("This form has been successfully submitted!");	
+      send_data(i_name.value)    
    console.log(
-      `This form has a username of ${usrname.value} and password of ${pssword.value}`
+      `This form has a username of ${usrname.value} and password of ${pssword.value} with value of ${i_name.value}`
     );
   }
 });
@@ -142,13 +144,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
      //get_data()
     //})
     
-    const load_bar_2 = document.getElementById('load_bar_2')
-    let int_form = document.getElementById("int_form");
-    int_form.addEventListener("submit", (e) => {
-    	e.preventDefualt();
-    	let i_name = document.getElementById("int_name");            
-  	send_data(i_name.value)    
-    	});
 
 });
 

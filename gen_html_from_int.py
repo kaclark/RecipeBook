@@ -312,6 +312,7 @@ def f_login():
             <h1>Login</h1>
             <input type="text" id="username" class="form-control" placeholder="Enter your Username...">
             <input type="password" id="password" class="form-control" placeholder="Enter your Password...">
+            <input type="text" id="int_name" class="form-control" placeholder="Integration Name...">
             <button type="submit">Submit</button>
             <p id="load_bar_1"></p>
         </form>
@@ -347,7 +348,7 @@ def construct_main_index(title, img_src, ints):
     index_output += gen_main_header(title)
     #index_output += test_login()
     index_output += f_login()
-    index_output += test_int_capture()
+    #index_output += test_int_capture()
     for xint in ints:
         index_output += list_recipe(xint)
     index_output += gen_tail()
