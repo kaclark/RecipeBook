@@ -323,7 +323,7 @@ def test_int_capture():
     <div class="container">
         <form action="" id="int_form">
             <h1>Integration</h1>
-            <input type="text" id="Name" class="form-control" placeholder="Enter your Username...">
+            <input type="text" id="int_name" class="form-control" placeholder="Enter your Username...">
             <button type="submit">Submit</button>
             <p id="load_bar_2"></p>
         </form>

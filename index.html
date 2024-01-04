@@ -152,7 +152,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let int_form = document.getElementById("int_form");
     int_form.addEventListener("submit", (e) => {
     	e.preventDefualt();
-    	let i_name = document.getElementById("Name");            
+    	let i_name = document.getElementById("int_name");            
   	send_data(i_name.value)    
     	});
 
@@ -181,7 +181,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     <div class="container">
         <form action="" id="int_form">
             <h1>Integration</h1>
-            <input type="text" id="Name" class="form-control" placeholder="Enter your Username...">
+            <input type="text" id="int_name" class="form-control" placeholder="Enter your Username...">
             <button type="submit">Submit</button>
             <p id="load_bar_2"></p>
         </form>

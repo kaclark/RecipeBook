@@ -146,7 +146,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let int_form = document.getElementById("int_form");
     int_form.addEventListener("submit", (e) => {
     	e.preventDefualt();
-    	let i_name = document.getElementById("Name");            
+    	let i_name = document.getElementById("int_name");            
   	send_data(i_name.value)    
     	});
 
