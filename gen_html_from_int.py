@@ -390,7 +390,7 @@ def construct_submission_index():
     index_output += test_int_capture() 
     index_output += gen_tail()
     
-    with open("./submission.html", "w") as html_out:
+    with open("./usr/submission.html", "w") as html_out:
         html_out.write(index_output)
 
 def construct_fridgestore():
