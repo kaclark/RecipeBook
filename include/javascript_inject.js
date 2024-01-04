@@ -148,9 +148,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     	e.preventDefualt();
     	let i_name = document.getElementById("Name");            
   
-    	let int_string = "&N;".concat(i_name.value)
     	if (sessionStorage) sessionStorage.clear()
-     		send_data(int_string)    
+     		send_data(i_name.value)    
     	});
 
 });
