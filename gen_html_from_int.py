@@ -355,7 +355,7 @@ def construct_main_index(title, img_src, ints):
     index_output += gen_main_header(title)
     #index_output += test_login()
     index_output += f_login()
-    index_output += f'''<a href="submission.html">Submit Integration</a>'''
+    index_output += f'''<a href="./usr/submission.html">Submit Integration</a>'''
     #index_output += test_int_capture()
     for xint in ints:
         index_output += list_recipe(xint)
