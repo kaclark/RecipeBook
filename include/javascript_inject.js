@@ -125,7 +125,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     if (usrname.value == "" && pssword.value == "") {
       console.log("empty")
-    } else if (i_name.value == "") {
+    } else {
       // perform operation with form input
       get_user(usrname.value, pssword.value)
       alert("This form has been successfully submitted!");	
