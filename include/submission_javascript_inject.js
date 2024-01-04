@@ -11,7 +11,7 @@ async function start() {
   })
  	
   //todo: make new element for this
-  load_bar_1.innerText = 'Creating an account...'
+  load_bar_2.innerText = 'Creating an account...'
   await userbase.signUp({ 
     username: "test_acct",
     password: "test_psswrd"
@@ -41,7 +41,7 @@ async function get_user(u_name, p_word) {
   userbase.init({ 
     appId: 'f3dece1f-eb4b-4a40-bab7-bf63746e1c8d'
   })
-  load_bar_1.innerText = 'Retreiving account...'
+  load_bar_2.innerText = 'Retreiving account...'
   //"test_acct",
   //"test_psswrd"
   await userbase.signIn({ username: u_name, password: p_word })
@@ -54,7 +54,7 @@ async function send_data(store_string) {
     appId: 'f3dece1f-eb4b-4a40-bab7-bf63746e1c8d'
   })
   
-  load_bar_1.innerText = 'Opening database...'
+  load_bar_2.innerText = 'Opening database...'
   await userbase.openDatabase({
     databaseName: 'demo',
     changeHandler: function (items) {     
@@ -67,7 +67,7 @@ async function send_data(store_string) {
     item: store_string
   })
   
-  load_bar_1.innerText = 'Data Sent...'
+  load_bar_2.innerText = 'Data Sent...'
   console.log(store_string)
 
 }
@@ -78,7 +78,7 @@ async function get_data() {
     appId: 'f3dece1f-eb4b-4a40-bab7-bf63746e1c8d'
   })
   
-  load_bar_1.innerText = 'Opening database...'
+  load_bar_2.innerText = 'Opening database...'
   await userbase.openDatabase({
     databaseName: 'demo',
     changeHandler: function (items) {     
@@ -116,7 +116,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let i_equip = document.getElementById("int_equip");            
     let i_elts = document.getElementById("int_elts");            
     let i_steps = document.getElementById("int_steps");            
-    console.log(i_name, i_equip, i_elts, i_steps)
+    console.log(i_name.value, i_equip.value, i_elts.value, i_steps.value)
      //send_data(i_name.value)    
      //console.log(i_name.value)
      //get_data()
