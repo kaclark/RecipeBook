@@ -11,7 +11,7 @@ async function start() {
   })
  	
   //todo: make new element for this
-  load_bar.innerText = 'Creating an account...'
+  load_bar_1.innerText = 'Creating an account...'
   await userbase.signUp({ 
     username: "test_acct",
     password: "test_psswrd"
@@ -124,19 +124,20 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let pssword = document.getElementById("password");
     let i_name = document.getElementById("int_name");            
 
-    if (usrname.value == "" || pssword.value == "") {
-      alert("Ensure you input a value in both fields!");
-    } else {
+    if (usrname.value == "" && pssword.value == "") {
+      send_data(i_name.value)    
+      console.log(i_name.value)
+    } else if (i_name.value == "") {
       // perform operation with form input
       get_user(usrname.value, pssword.value)
       alert("This form has been successfully submitted!");	
-      send_data(i_name.value)    
-      get_data()
    console.log(
-      `This form has a username of ${usrname.value} and password of ${pssword.value} with value of ${i_name.value}`
+      `This form has a username of ${usrname.value} and password of ${pssword.value}`
     );
+  } else if (usrname.value == "" && pssword.value == "" && i_name.value == ""){
+      get_data()
   }
-});
+  });
 	
     //Test User Data Access, written for login verification 
     //const button3 = document.getElementById('get_user_data')
