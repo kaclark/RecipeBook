@@ -144,24 +144,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     
     let int_form = document.getElementById("int_form");
     int_form.addEventListener("submit", (e) => {
-    e.preventDefualt();
-    let i_name = document.getElementById("Name");            
-    let i_e = document.getElementById("Equipment");
-    let i_elt1 = document.getElementById("Ingredient1");
-    let i_elt2 = document.getElementById("Ingredient2");
-    let i_elt3 = document.getElementById("Ingredient3");
-    let i_s1 = document.getElementById("Step1");
-    let i_s2 = document.getElementById("Step2");
-    let i_s3 = document.getElementById("Step3");
+    	e.preventDefualt();
+    	let i_name = document.getElementById("Name");            
   
-    let int_string = "&N;".concat(i_name.value,";","&E;",i_e.value,";",
-	        "&I;",i_elt1.value,";",i_elt2.value,";",i_elt3.value,";",
-	        "&S;",i_s1.value,";",i_s2.value,";",i_s3.value
-	)
-    console.log("before sent", int_string)
-    if (sessionStorage) sessionStorage.clear()
-     	send_data(int_string)    
-    });
+    	let int_string = "&N;".concat(i_name.value)
+    	if (sessionStorage) sessionStorage.clear()
+     		send_data(int_string)    
+    	});
 
 });
 
