@@ -313,7 +313,7 @@ def f_login():
             <input type="text" id="username" class="form-control" placeholder="Enter your Username...">
             <input type="password" id="password" class="form-control" placeholder="Enter your Password...">
             <button type="submit">Submit</button>
-            <p id="load_bar"></p>
+            <p id="load_bar_1"></p>
         </form>
     </div>
     '''
@@ -324,15 +324,8 @@ def test_int_capture():
         <form action="" id="int_form">
             <h1>Integration</h1>
             <input type="text" id="Name" class="form-control" placeholder="Enter your Username...">
-            <input type="text" id="Equipment" class="form-control" placeholder="Equipment(e1;e2;...;en) for all n in n">
-            <input type="text" id="Ingredient1" class="form-control" placeholder="Ingredient;Barcode">
-            <input type="text" id="Ingredient2" class="form-control" placeholder="Ingredient;Barcode">
-            <input type="text" id="Ingredient3" class="form-control" placeholder="Ingredient;Barcode">
-            <input type="text" id="Step1" class="form-control" placeholder="instructions">
-            <input type="text" id="Step2" class="form-control" placeholder="instructions">
-            <input type="text" id="Step3" class="form-control" placeholder="instructions">
             <button type="submit">Submit</button>
-            <p id="load_bar"></p>
+            <p id="load_bar_2"></p>
         </form>
     </div>
     '''

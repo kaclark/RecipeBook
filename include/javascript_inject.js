@@ -41,7 +41,7 @@ async function get_user(u_name, p_word) {
   userbase.init({ 
     appId: 'f3dece1f-eb4b-4a40-bab7-bf63746e1c8d'
   })
-  load_bar.innerText = 'Retreiving account...'
+  load_bar_1.innerText = 'Retreiving account...'
   //"test_acct",
   //"test_psswrd"
   await userbase.signIn({ username: u_name, password: p_word })
@@ -67,7 +67,7 @@ async function send_data(store_string) {
     item: store_string
   })
   
-  load_bar.innerText = 'Data Sent...'
+  load_bar_2.innerText = 'Data Sent...'
   console.log(store_string)
 
 }
@@ -108,7 +108,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     //})
     
     //LOGIN
-    const load_bar = document.getElementById('load_bar')
+    const load_bar_1 = document.getElementById('load_bar_1')
 
     //Frozen when test login was finalized
     //const db_item1 = document.getElementById('db_item1')
@@ -129,7 +129,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       get_user(usrname.value, pssword.value)
    alert("This form has been successfully submitted!");
    console.log(
-      `This form has a username of ${username.value} and password of ${password.value}`
+      `This form has a username of ${usrname.value} and password of ${pssword.value}`
     );
   }
 });
@@ -141,6 +141,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
      //if (sessionStorage) sessionStorage.clear()
      //get_data()
     //})
+    const load_bar_2 = document.getElementById('load_bar_2')
     
     let int_form = document.getElementById("int_form");
     int_form.addEventListener("submit", (e) => {
